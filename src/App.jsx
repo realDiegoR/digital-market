@@ -1,3 +1,3 @@
 export const App = () => {
-	return <p>Digital Market</p>;
+	return <p className="text-red-800 text-3xl">Digital Market</p>;
 };
