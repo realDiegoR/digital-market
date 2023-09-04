@@ -1,0 +1,5 @@
+{
+	"alias-resolver.file": "vite.config.js",
+	"alias-resolver.type": "rollup"
+	// "alias-resolver.file": ""
+}
