@@ -30,13 +30,14 @@
 			}
 		}
 	},
-	"plugins": ["react-refresh"],
+	"plugins": ["react-refresh", "import"],
 	"rules": {
 		"react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
+		"import/named": "error",
 		"import/no-mutable-exports": "error",
 		"import/no-empty-named-blocks": "error",
 		"import/no-commonjs": "error",
 		"import/first": "error",
-		"import/named": "error"
+		"import/no-named-export": "off"
 	}
 }

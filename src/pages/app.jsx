@@ -1,4 +1,5 @@
 import { MainLayout } from '@/layouts/main.layout';
+import { RootPage } from './root/root';
 
 import {
 	createBrowserRouter,
@@ -10,7 +11,7 @@ import {
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/" element={<MainLayout />}>
-			<Route index element={<p>Homepage</p>} />
+			<Route index element={<RootPage />} />
 		</Route>
 	)
 );
