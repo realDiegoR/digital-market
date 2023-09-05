@@ -1,11 +1,18 @@
+import { useState } from 'react';
 import { IconPlus } from '@tabler/icons-react';
-import { LinkCard, Wrapper, PageTitle } from '@/common/';
-
+import { LinkCard, Wrapper, PageTitle, HamburgerButton } from '@/common';
 export const RootPage = () => {
+	const [isOpen, setIsOpen] = useState(false);
+
+	const toggle = () => {
+		setIsOpen((prev) => !prev);
+	};
+
 	return (
 		<>
 			<PageTitle>Home</PageTitle>
 			<Wrapper>
+				<HamburgerButton isOpen={isOpen} toggleMenu={toggle} />
 				<LinkCard
 					href="/page"
 					title="Agregar nuevo producto"
