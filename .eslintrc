@@ -38,6 +38,6 @@
 		"import/no-empty-named-blocks": "error",
 		"import/no-commonjs": "error",
 		"import/first": "error",
-		"import/no-named-export": "off"
+		"react/prop-types": "error"
 	}
 }
