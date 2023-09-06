@@ -11,12 +11,15 @@ export const HamburgerButton = ({ isOpen, toggleMenu }) => {
 		<button onClick={toggleMenu}>
 			<div className="space-y-2 ">
 				<span
+					data-testid="span"
 					className={`block w-8 h-0.5 bg-gray-600 transition-transform duration-200 ${styles.firstStick}`}
 				></span>
 				<span
+					data-testid="span"
 					className={`block w-8 h-0.5 bg-gray-600 transition-opacity duration-200 ${styles.secondStick}`}
 				></span>
 				<span
+					data-testid="span"
 					className={`block h-0.5 float-right bg-gray-600 transition-all duration-200 ${styles.thirdStick}`}
 				></span>
 			</div>
