@@ -1,0 +1,22 @@
+name: Run application tests
+run-name: Run application tests
+
+on: 
+    push:
+    pull_request:
+        types: [opened, synchronize]
+        
+jobs:
+    unit-test:
+        runs-on: ubuntu-20.04
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744
+            - name: Setup Node.js
+              uses: actions/setup-node@5e21ff4d9bc1a8cf6de233a3057d20ec6b3fb69d
+              with:
+                node-version: 18
+            - name: Install dependencies
+              run: pnpm install
+            - name: Run unit tests
+              run: pnpm test
