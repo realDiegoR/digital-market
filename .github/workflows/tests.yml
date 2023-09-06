@@ -3,8 +3,10 @@ run-name: Run application tests
 
 on: 
     push:
+        branches: [main]
     pull_request:
         types: [opened, synchronize]
+    
         
 jobs:
     unit-test:
