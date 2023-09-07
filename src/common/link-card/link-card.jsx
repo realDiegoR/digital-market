@@ -16,8 +16,8 @@ export const LinkCard = ({ title, icon, children, href }) => {
 };
 
 LinkCard.propTypes = {
-	title: PropTypes.string,
-	icon: PropTypes.element,
-	children: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-	href: PropTypes.string,
+	title: PropTypes.string.isRequired,
+	icon: PropTypes.element.isRequired,
+	children: PropTypes.node.isRequired,
+	href: PropTypes.string.isRequired,
 };

@@ -5,5 +5,5 @@ export const Wrapper = ({ children }) => {
 };
 
 Wrapper.propTypes = {
-	children: PropTypes.element,
+	children: PropTypes.node,
 };
