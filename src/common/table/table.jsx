@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const Table = ({ list = [], withSelect = true, size = 'small' }) => {
+export const Table = ({ list = [], withSelect = false, size = 'small' }) => {
 	return (
 		<table>
 			<thead>
@@ -18,7 +18,7 @@ export const Table = ({ list = [], withSelect = true, size = 'small' }) => {
 Table.propTypes = {
 	list: PropTypes.array.isRequired,
 	withSelect: PropTypes.bool,
-	size: PropTypes.oneOf(['small', 'big']).isRequired,
+	size: PropTypes.oneOf(['small', 'big']),
 };
 
 function TableRow({ type = 'body', withSelect, size, data }) {
