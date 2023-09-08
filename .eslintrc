@@ -7,6 +7,7 @@
 		"plugin:react/jsx-runtime",
 		"plugin:react-hooks/recommended",
 		"plugin:import/recommended",
+		"plugin:@tanstack/eslint-plugin-query/recommended",
 		"plugin:vitest/recommended",
 		"plugin:testing-library/react",
 		"plugin:jest-dom/recommended",
@@ -36,7 +37,6 @@
 	"plugins": ["react-refresh", "import", "testing-library"],
 	"rules": {
 		"react-refresh/only-export-components": ["warn", { "allowConstantExport": true }],
-		"import/named": "error",
 		"import/no-mutable-exports": "error",
 		"import/no-empty-named-blocks": "error",
 		"import/no-commonjs": "error",
