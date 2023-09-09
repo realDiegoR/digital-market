@@ -21,7 +21,7 @@ export const Header = () => {
 	};
 
 	return (
-		<header ref={headerRef} className="relative bg-black max-h-[80px]">
+		<header ref={headerRef} className="relative bg-black h-[70px]">
 			<Wrapper className="flex h-full justify-between items-center">
 				<figure>
 					<Link to="/">
@@ -50,6 +50,9 @@ function HeaderMobileNav({ headerRef }) {
 	const header = headerRef.current;
 	const rect = header.getBoundingClientRect();
 
+	const height = window.innerHeight - rect.height + 1;
+	const absoluteTop = rect.height - 1;
+
 	useEffect(() => {
 		document.body.classList.add('max-h-screen', 'overflow-y-hidden');
 		window.scroll({ top: 0, behavior: 'smooth' });
@@ -58,10 +61,7 @@ function HeaderMobileNav({ headerRef }) {
 	}, []);
 
 	return (
-		<nav
-			className="absolute w-full py-2 bg-black z-30 over"
-			style={{ height: window.innerHeight - rect.height + 1, top: rect.height - 1 }}
-		>
+		<nav className="absolute w-full py-2 bg-black z-30" style={{ height, top: absoluteTop }}>
 			<Wrapper>
 				<ul>
 					{NAV_LINKS.map((link) => (
