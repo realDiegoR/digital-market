@@ -7,7 +7,7 @@ export const PageTitle = ({ children }) => {
 	const titleRef = useRef();
 
 	const updateScroll = () => {
-		if (window.scrollY > 50) return;
+		if (window.scrollY > 150) return;
 		const myComponent = titleRef.current;
 		const rect = myComponent.getBoundingClientRect();
 		const isAtTop = rect.top === 0;
@@ -27,7 +27,6 @@ export const PageTitle = ({ children }) => {
 					? 'shadow-md backdrop-blur bg-white/80 backdrop-saturate-100'
 					: 'shadow-none backdrop-blur-none'
 			}`}
-			onClick={(ev) => console.log(ev)}
 		>
 			<Wrapper>{children}</Wrapper>
 		</h1>

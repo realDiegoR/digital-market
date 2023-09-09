@@ -28,7 +28,8 @@
 					["@/store", "./src/store"],
 					["@/common", "./src/common"],
 					["@/hooks", "./src/hooks"],
-					["@/utils", "./src/utils"]
+					["@/assets", "./src/assets"],
+					["@/constants", "./src/constants"]
 				]
 			}
 		}
