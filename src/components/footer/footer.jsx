@@ -10,7 +10,7 @@ export const Footer = () => {
 			<Wrapper className="flex justify-between">
 				<div>
 					<figure className="flex items-start">
-						<img src={logoUrl} className="w-20"></img>
+						<img src={logoUrl} className="w-20" alt="digital market"></img>
 					</figure>
 				</div>
 				<div>

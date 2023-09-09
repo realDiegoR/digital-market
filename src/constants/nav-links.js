@@ -1,9 +1,5 @@
 export const NAV_LINKS = [
 	{
-		name: 'Iniciar sesión',
-		url: '/login',
-	},
-	{
 		name: 'Soluciones',
 		url: '/solutions',
 	},
@@ -11,4 +7,12 @@ export const NAV_LINKS = [
 		name: 'Contáctanos',
 		url: '/contact',
 	},
+];
+
+export const UNLOGGED_NAV_LINKS = [
+	{
+		name: 'Iniciar sesión',
+		url: '/login',
+	},
+	...NAV_LINKS,
 ];
