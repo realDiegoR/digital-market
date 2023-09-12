@@ -41,7 +41,7 @@ export const RootPage = () => {
 								'La dirección de correo electrónico no es válida. Por favor, ingresa una dirección de correo válida.',
 						}}
 					/>
-					<button type="submit">submit</button>
+					<Button type="submit">submit</Button>
 				</Form>
 			</Wrapper>
 		</>

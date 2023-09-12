@@ -2,7 +2,7 @@ import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
 
 export const FormInput = ({
-	type,
+	type = 'text',
 	label,
 	name,
 	placeholder,
@@ -22,12 +22,12 @@ export const FormInput = ({
 		<label className="gap-1.5 flex flex-col">
 			<span className="font-bold text-sm">{label}</span>
 			<input
-				className="bg-transparent border-2 p-2 rounded border-black/50 read-only:bg-gray-400/50 read-only:border-black/40"
-				onChange={() => console.log(formState)}
 				type={type}
+				className="bg-transparent border-2 p-2 rounded border-black/50 read-only:bg-gray-200 read-only:border-black/30 read-only:text-black/90"
+				onChange={() => console.log(formState)}
 				placeholder={placeholder}
-				{...register(name, { required, maxLength, pattern, minLength, max, min })}
 				readOnly={readOnly}
+				{...register(name, { required, maxLength, pattern, minLength, max, min })}
 			/>
 			{errorMessage ? (
 				<span className="block bg-red-200/25 border border-red-300 py-2 px-4 text-red-950">
@@ -45,7 +45,7 @@ const createInputValidationSchema = (propType) =>
 	});
 
 FormInput.propTypes = {
-	type: PropTypes.oneOf(['text', 'password', 'email', 'tel', 'url', 'number']),
+	type: PropTypes.oneOf(['text', 'password', 'email', 'tel', 'url', 'number', 'date']),
 	label: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
 	required: PropTypes.string, // recibe el mensaje de error
