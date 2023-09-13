@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 
 export const LinkCard = ({ title, icon, children, href }) => {
 	return (
-		<Link to={href}>
-			<div className="p-5 shadow-md max-w-sm">
+		<div className="shadow-md max-w-sm">
+			<Link to={href} className="p-5 block">
 				<div className="flex gap-3 items-center mb-3">
-					<span className="">{icon}</span>
+					<span>{icon}</span>
 					<p className="text-lg">{title}</p>
 				</div>
 				<div className="px-1">{children}</div>
-			</div>
-		</Link>
+			</Link>
+		</div>
 	);
 };
 
