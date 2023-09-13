@@ -30,7 +30,8 @@
 					["@/common", "./src/common"],
 					["@/hooks", "./src/hooks"],
 					["@/assets", "./src/assets"],
-					["@/constants", "./src/constants"]
+					["@/constants", "./src/constants"],
+					["@/services", "./src/services"]
 				]
 			}
 		}
