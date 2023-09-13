@@ -2,7 +2,14 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { variantStyles, widthStyles } from './variants';
 
-export const Button = ({ href, variant = 'primary', children, onClick, width = 'max-content' }) => {
+export const Button = ({
+	href,
+	variant = 'primary',
+	children,
+	onClick,
+	width = 'max-content',
+	type = 'button',
+}) => {
 	const buttonStyles = variantStyles[variant] + ' ' + widthStyles[width];
 
 	if (href) {
@@ -14,7 +21,7 @@ export const Button = ({ href, variant = 'primary', children, onClick, width = '
 	}
 
 	return (
-		<button onClick={onClick} className={`${buttonStyles}`}>
+		<button onClick={onClick} className={`${buttonStyles}`} type={type}>
 			{children}
 		</button>
 	);
@@ -26,4 +33,5 @@ Button.propTypes = {
 	children: PropTypes.node.isRequired,
 	href: PropTypes.string,
 	onClick: PropTypes.func,
+	type: PropTypes.oneOf(['button', 'reset', 'submit']),
 };
