@@ -8,7 +8,7 @@ import {
 	Route,
 	RouterProvider,
 } from 'react-router-dom';
-import { Home } from './home';
+import { Home } from './home/home';
 
 const info = [
 	{
@@ -36,7 +36,7 @@ const router = createBrowserRouter(
 		<Route path="/" element={<MainLayout />}>
 			<Route index element={<RootPage />} />
 			<Route path="/testtabla" element={<Table list={info} withSelect={true} />} />
-			<Route path="/home" element={Home()} />
+			<Route path="/home" element={<Home />} />
 		</Route>
 	)
 );

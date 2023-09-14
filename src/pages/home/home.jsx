@@ -1,10 +1,12 @@
 import { LinkCard, PageTitle, Wrapper } from '@/common';
-import { IconTruck } from '@tabler/icons-react';
-import { IconCash } from '@tabler/icons-react';
-import { IconCoin } from '@tabler/icons-react';
-import { IconUser } from '@tabler/icons-react';
-import { IconArrowLeft } from '@tabler/icons-react';
-import { IconHome } from '@tabler/icons-react';
+import {
+	IconTruck,
+	IconCash,
+	IconCoin,
+	IconUser,
+	IconArrowLeft,
+	IconHome,
+} from '@tabler/icons-react';
 
 export const Home = () => {
 	return (
@@ -14,43 +16,43 @@ export const Home = () => {
 				<PageTitle>Hogar</PageTitle>
 			</div>
 			<div className="grid max-w-full sm:grid-flow-row md:grid-cols-2 gap-14">
-				<LinkCard href="/page" title="Cargar Venta" icon={<IconArrowLeft />}>
+				<LinkCard href="#" title="Cargar Venta" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="/page" title="Cargar compra" icon={<IconArrowLeft />}>
+				<LinkCard href="#" title="Cargar compra" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="/page" title="Lista de ventas" icon={<IconArrowLeft />}>
+				<LinkCard href="#" title="Lista de ventas" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="/page" title="Lista de compras" icon={<IconArrowLeft />}>
+				<LinkCard href="#" title="Lista de compras" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="/page" title="Inventario" icon={<IconArrowLeft />}>
+				<LinkCard href="#" title="Inventario" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
 			</div>
 			<hr className="my-8" />
 			<div className="grid max-w-full sm:grid-flow-row md:grid-cols-2 gap-14">
-				<LinkCard href="/page" title="Clientes" icon={<IconUser />}>
+				<LinkCard href="#" title="Clientes" icon={<IconUser />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="/page" title="Proveedores" icon={<IconTruck />}>
+				<LinkCard href="#" title="Proveedores" icon={<IconTruck />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="/page" title="Cobrar" icon={<IconCoin />}>
+				<LinkCard href="#" title="Cobrar" icon={<IconCoin />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="/page" title="Pagar" icon={<IconCash />}>
+				<LinkCard href="#" title="Pagar" icon={<IconCash />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
 			</div>
 			<hr className="my-8" />
 			<div className="grid max-w-full sm:grid-flow-row md:grid-cols-2 gap-14 mb-16">
-				<LinkCard href="/page" title="Gastos" icon={<IconUser />}>
+				<LinkCard href="#" title="Gastos" icon={<IconUser />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="/page" title="Cuentas" icon={<IconTruck />}>
+				<LinkCard href="#" title="Cuentas" icon={<IconTruck />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
 			</div>
