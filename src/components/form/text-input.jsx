@@ -6,12 +6,12 @@ export const FormInput = ({
 	label,
 	name,
 	placeholder,
-	required = 'Este campo es requerido.',
 	maxLength,
 	pattern,
 	minLength,
 	max,
 	min,
+	required = 'Este campo es requerido.',
 	readOnly = false,
 }) => {
 	const { register, formState } = useFormContext();
