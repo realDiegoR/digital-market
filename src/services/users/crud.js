@@ -35,7 +35,7 @@ export const getUser = async (businessId, userId) => {
 
 export const createUser = async (body) => {
 	try {
-		const response = await api.post('endpoint', body);
+		const response = await api.post(endpoint, body);
 		return response.data;
 	} catch (err) {
 		return err.response.data;
