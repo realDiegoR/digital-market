@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/named
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { MainLayout } from '@/layouts/main.layout';
 import { RootPage } from './root/root';
 import { Table } from '../common/table';
@@ -42,5 +44,10 @@ const router = createBrowserRouter(
 );
 
 export const App = () => {
-	return <RouterProvider router={router} />;
+	const queryClient = new QueryClient();
+	return (
+		<QueryClientProvider client={queryClient}>
+			<RouterProvider router={router} />
+		</QueryClientProvider>
+	);
 };

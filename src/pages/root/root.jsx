@@ -18,7 +18,7 @@ export const RootPage = () => {
 					<IconUser /> Agregar producto
 				</Button>
 				<Form
-					action="/"
+					action="/roles/"
 					defaultValues={{ codigo: '', nombre: '', email: 'pepe@a.com' }}
 					onSubmit={(data) => console.log(data)}
 				>
