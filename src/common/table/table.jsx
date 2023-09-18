@@ -1,17 +1,33 @@
 import PropTypes from 'prop-types';
+import { Wrapper } from '../wrapper';
 
 export const Table = ({ list = [], withSelect = false, size = 'small' }) => {
+	if (list.length === 0 || Object.keys(list[0]).length === 0) {
+		return (
+			<Wrapper>
+				<div
+					className="p-10 text-center bg-gray-200/60 rounded-md text-gray-700 lg:text-md"
+					style={{ textWrap: 'balance' }}
+				>
+					Todavía no hay información disponible para mostrar.
+				</div>
+			</Wrapper>
+		);
+	}
+
 	return (
-		<table>
-			<thead>
-				<TableRow data={list[0]} type="head" withSelect={withSelect} size={size} />
-			</thead>
-			<tbody>
-				{list.map((obj, index) => (
-					<TableRow key={index} data={obj} withSelect={withSelect} size={size} />
-				))}
-			</tbody>
-		</table>
+		<div className="w-full overflow-x-auto">
+			<table>
+				<thead>
+					<TableRow data={list[0] ?? {}} type="head" withSelect={withSelect} size={size} />
+				</thead>
+				<tbody>
+					{list.map((obj, index) => (
+						<TableRow key={index} data={obj} withSelect={withSelect} size={size} />
+					))}
+				</tbody>
+			</table>
+		</div>
 	);
 };
 
@@ -43,7 +59,7 @@ function TableRow({ type = 'body', withSelect, size, data }) {
 }
 
 TableRow.propTypes = {
-	data: PropTypes.array.isRequired,
+	data: PropTypes.object.isRequired,
 	type: PropTypes.oneOf(['head', 'body']),
 	size: PropTypes.oneOf(['small', 'big']),
 	withSelect: PropTypes.bool,
@@ -56,20 +72,17 @@ function Cell({ children, size = 'small', type = 'body' }) {
 	if (isString) {
 		hasWhiteSpaces = children.includes(' '); // checkea si hay espacios en blanco (whitespaces) dentro del string
 	}
-
-	const breakWordStyles = hasWhiteSpaces ? '' : 'break-all';
-	const sizeStyles = size === 'small' ? 'max-w-[25ch]' : 'max-w-[50ch]';
+	const breakWordStyles = hasWhiteSpaces ? 'min-w-[15ch]' : 'break-all';
+	const sizeStyles = size === 'small' ? ' max-w-[40ch]' : 'max-w-[50ch]';
 
 	if (type === 'head') {
 		return (
-			<th className={`border-2 border-black px-2 py-1 capitalize ${sizeStyles} ${breakWordStyles}`}>
-				{children}
-			</th>
+			<th className={`border-2 border-black px-4 py-1 capitalize ${sizeStyles}`}>{children}</th>
 		);
 	}
 
 	return (
-		<td className={`border-2 border-black px-2 py-1 ${sizeStyles} ${breakWordStyles}`}>
+		<td className={`border-2 border-black px-4 py-1 ${sizeStyles} ${breakWordStyles}`}>
 			{children}
 		</td>
 	);

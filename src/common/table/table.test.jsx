@@ -57,6 +57,14 @@ describe('Table', () => {
 		expect(cellsRowOne[0]).toHaveTextContent('Selecc.');
 		expect(cellsRoTwo[0]).toContainHTML('input');
 	});
+
+	test('should render an empty table', () => {
+		render(<Table list={[]} withSelect={true} />);
+
+		const table = screen.queryByRole('table');
+
+		expect(table).not.toBeInTheDocument();
+	});
 });
 
 function generateFakeData(quantity) {
