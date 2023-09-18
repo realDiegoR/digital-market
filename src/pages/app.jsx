@@ -1,16 +1,15 @@
 // eslint-disable-next-line import/named
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { MainLayout } from '@/layouts/main.layout';
-import { RootPage } from './root/root';
-import { Table } from '../common/table';
-
 import {
 	createBrowserRouter,
 	createRoutesFromElements,
 	Route,
 	RouterProvider,
 } from 'react-router-dom';
+import { MainLayout } from '@/layouts/main.layout';
+import { Table } from '../common/table';
 import { Home } from './home/home';
+import { RootPage } from './root/root';
 
 const info = [
 	{
