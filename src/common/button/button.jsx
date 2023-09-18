@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { variantStyles, widthStyles } from './variants';
 
 export const Button = ({

@@ -1,9 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, HamburgerButton, Wrapper } from '@/common';
 import { NAV_LINKS } from '@/constants/nav-links';
-
 import logoUrl from '@/assets/images/digital-market.webp';
 
 export const Header = () => {
@@ -21,8 +20,8 @@ export const Header = () => {
 	};
 
 	return (
-		<header ref={headerRef} className="relative bg-black h-[70px]">
-			<Wrapper className="flex h-full justify-between items-center">
+		<header ref={headerRef} className="relative h-[70px] bg-black">
+			<Wrapper className="flex h-full items-center justify-between">
 				<figure>
 					<Link to="/">
 						<img src={logoUrl} alt="digital market" className="w-20" />
@@ -61,13 +60,13 @@ function HeaderMobileNav({ headerRef }) {
 	}, []);
 
 	return (
-		<nav className="absolute w-full py-2 bg-black z-30" style={{ height, top: absoluteTop }}>
+		<nav className="absolute z-30 w-full bg-black py-2" style={{ height, top: absoluteTop }}>
 			<Wrapper>
 				<ul>
 					{NAV_LINKS.map((link) => (
 						<li
 							key={link.url}
-							className="flex justify-center items-center py-2.5 border-b border-gray-600 last:border-0"
+							className="flex items-center justify-center border-b border-gray-600 py-2.5 last:border-0"
 						>
 							<Link to={link.url} className="text-gray-300">
 								{link.name}

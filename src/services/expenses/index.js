@@ -1,4 +1,6 @@
-import { api } from '../api'; // Import the axios instance created in '../api'.
+import { api } from '../api';
+
+// Import the axios instance created in '../api'.
 
 const endpoint = '/expenses'; // Define the endpoint for Expenses.
 

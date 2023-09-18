@@ -1,6 +1,6 @@
 import { IconPlus, IconUser } from '@tabler/icons-react';
-import { LinkCard, Wrapper, PageTitle, Button } from '@/common/';
 import { Form, FormInput } from '@/components';
+import { Button, LinkCard, PageTitle, Wrapper } from '@/common/';
 
 export const RootPage = () => {
 	return (
