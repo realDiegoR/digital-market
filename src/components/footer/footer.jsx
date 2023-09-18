@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
-import { NAV_LINKS } from '@/constants/nav-links';
 import { Wrapper } from '@/common';
-
+import { NAV_LINKS } from '@/constants/nav-links';
 import logoUrl from '@/assets/images/digital-market.webp';
 
 export const Footer = () => {
@@ -14,12 +13,12 @@ export const Footer = () => {
 					</figure>
 				</div>
 				<div>
-					<ul className="capitalize text-right space-y-3">
+					<ul className="space-y-3 text-right capitalize">
 						{NAV_LINKS.map((link) => (
 							<li key={link.url}>
 								<Link
 									to={link.url}
-									className="text-gray-200 hover:text-gray-300 transition-colors duration-100"
+									className="text-gray-200 transition-colors duration-100 hover:text-gray-300"
 								>
 									{link.name}
 								</Link>

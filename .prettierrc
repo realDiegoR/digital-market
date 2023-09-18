@@ -13,14 +13,13 @@
 	"importOrderCaseInsensitive": true,
 	"importOrder": [
 		"<THIRD_PARTY_MODULES>",
-		"^@/layouts/(.*)$",
-		"@/components/(.*)$",
-		"@/common/(.*)$",
-		"@/hooks/(.*)$",
-		"@/services/(.*)$",
-		"@/constants/(.*)$",
-		"@/constants/(.*)$",
-		"@/assets/(.*)$",
+		"^@/layouts",
+		"^@/components",
+		"^@/common",
+		"^@/hooks",
+		"^@/services",
+		"^@/constants",
+		"^@/assets",
 		"^[../]",
 		"^[./]"
 	]

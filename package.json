@@ -6,9 +6,11 @@
 	"scripts": {
 		"dev": "vite",
 		"build": "vite build",
-		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+		"lint": "eslint . --ext js,jsx --max-warnings 0",
 		"start": "vite preview",
 		"test": "vitest",
+		"format": "prettier --write ./src/",
+		"format:check": "prettier --check ./src/",
 		"coverage": "vitest run --coverage",
 		"prepare": "husky install"
 	},

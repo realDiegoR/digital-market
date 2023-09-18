@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useEffect, useRef, useState } from 'react';
 import { Wrapper } from '@/common/';
 
 export const PageTitle = ({ children }) => {
@@ -22,9 +22,9 @@ export const PageTitle = ({ children }) => {
 	return (
 		<h1
 			ref={titleRef}
-			className={`text-xl py-3 sticky top-0 transition-[backgroundColor,_box-shadow] duration-200 z-20 ${
+			className={`sticky top-0 z-20 py-3 text-xl transition-[backgroundColor,_box-shadow] duration-200 ${
 				isBlurred
-					? 'shadow-md backdrop-blur bg-white/80 backdrop-saturate-100'
+					? 'bg-white/80 shadow-md backdrop-blur backdrop-saturate-100'
 					: 'shadow-none backdrop-blur-none'
 			}`}
 		>

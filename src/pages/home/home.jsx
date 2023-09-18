@@ -1,4 +1,3 @@
-import { LinkCard, PageTitle, Wrapper } from '@/common';
 import {
 	IconArrowLeft,
 	IconCash,
@@ -7,6 +6,7 @@ import {
 	IconTruck,
 	IconUser,
 } from '@tabler/icons-react';
+import { LinkCard, PageTitle, Wrapper } from '@/common';
 
 export const Home = () => {
 	return (
