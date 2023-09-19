@@ -7,7 +7,7 @@ export const PageTitle = ({ children }) => {
 	const titleRef = useRef();
 
 	const updateScroll = () => {
-		if (window.scrollY > 150) return;
+		if (window.scrollY > 200) return;
 		const myComponent = titleRef.current;
 		const rect = myComponent.getBoundingClientRect();
 		const isAtTop = rect.top === 0;
