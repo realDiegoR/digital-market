@@ -6,10 +6,11 @@ import {
 	Route,
 	RouterProvider,
 } from 'react-router-dom';
-import { MainLayout } from '@/layouts/main.layout';
+import { MainLayout, ReturnableMainLayout } from '@/layouts/';
 import { Table } from '../common/table';
 import { Home } from './home/home';
 import { RootPage } from './root/root';
+import { SalesPage } from './sales/sales';
 
 const info = [
 	{
@@ -36,8 +37,11 @@ const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/" element={<MainLayout />}>
 			<Route index element={<RootPage />} />
-			<Route path="/testtabla" element={<Table list={info} withSelect={true} />} />
 			<Route path="/home" element={<Home />} />
+			<Route element={<ReturnableMainLayout />}>
+				<Route path="/sales" element={<SalesPage />} />
+				<Route path="/testtabla" element={<Table list={info} withSelect={true} />} />
+			</Route>
 		</Route>
 	)
 );
