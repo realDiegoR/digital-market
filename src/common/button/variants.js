@@ -3,7 +3,7 @@ const baseStyles =
 
 export const widthStyles = {
 	'max-content': 'w-max',
-	full: 'w-full justify-center',
+	full: 'w-full justify-center py-3',
 };
 
 export const variantStyles = {

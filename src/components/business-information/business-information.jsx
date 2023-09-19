@@ -1,13 +1,8 @@
 import { IconFileTypePdf } from '@tabler/icons-react';
 import PropTypes from 'prop-types';
-import { Button, LoadingSpinner, Table } from '@/common';
-import { useFetch } from '@/hooks/';
+import { Button, Table } from '@/common';
 
-export const BusinessInformation = ({ queryKey, queryFn }) => {
-	const { data, status } = useFetch(queryKey, queryFn);
-
-	const isLoading = status === 'loading';
-
+export const BusinessInformation = ({ data }) => {
 	return (
 		<section>
 			<div className="flex items-center justify-between pb-4">
@@ -17,12 +12,11 @@ export const BusinessInformation = ({ queryKey, queryFn }) => {
 					Descargar
 				</Button>
 			</div>
-			{isLoading ? <LoadingSpinner /> : <Table list={data} withSelect />}
+			<Table list={data} withSelect />
 		</section>
 	);
 };
 
 BusinessInformation.propTypes = {
-	queryKey: PropTypes.arrayOf(PropTypes.string).isRequired,
-	queryFn: PropTypes.func.isRequired,
+	data: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
