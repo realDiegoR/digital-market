@@ -7,10 +7,10 @@ import {
 	RouterProvider,
 } from 'react-router-dom';
 import { MainLayout, ReturnableMainLayout } from '@/layouts/';
-import { Home } from './home/home';
-import { PurchasesPage } from './purchases/purchases';
-import { RootPage } from './root/root';
-import { SalesPage } from './sales/sales';
+import { Home } from './home/';
+import { PurchasesPage } from './purchases/';
+import { RootPage } from './root/';
+import { SalesPage } from './sales/';
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
