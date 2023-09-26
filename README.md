@@ -1,4 +1,4 @@
-<h1 align="center" id="title">Digial Market - Frontend</h1>
+<h1 align="center" id="title">Digital Market - Frontend</h1>
 
 <p id="description">💻 Aplicación Frontend de Digital Market</p>
 
