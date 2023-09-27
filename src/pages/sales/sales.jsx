@@ -7,16 +7,21 @@ export const SalesPage = () => {
 	const getBusinessSales = async () => {
 		const fakeBusinessId = 1;
 		const res = await getAllSales(fakeBusinessId);
-		return res.map((sale) => ({
-			codigo: sale.id,
-			cliente: sale.cliente.perfil.nombre,
-			vendedor: sale.usuario.perfil.nombre,
-			total: sale.total,
-			fecha: new Intl.DateTimeFormat('es-AR').format(new Date(sale.createdAt)),
-		}));
+		return res;
 	};
 
-	const { data, status } = useFetch(['sales'], getBusinessSales);
+	const { data, status } = useFetch({
+		cacheId: 'sales',
+		queryFunction: getBusinessSales,
+		select: (sales) =>
+			sales.map((sale) => ({
+				codigo: sale.id,
+				cliente: sale.cliente.perfil.nombre,
+				vendedor: sale.usuario.perfil.nombre,
+				total: sale.total,
+				fecha: new Intl.DateTimeFormat('es-AR').format(new Date(sale.createdAt)),
+			})),
+	});
 
 	if (status === 'loading') {
 		return <LoadingSpinner />;

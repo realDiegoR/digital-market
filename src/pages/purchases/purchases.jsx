@@ -9,7 +9,7 @@ export const PurchasesPage = () => {
 		return getPurchases(fakeBusinessId);
 	};
 
-	const { data, status } = useFetch(['purchases'], getBusinessPurchases);
+	const { data, status } = useFetch({ cacheId: 'purchases', queryFunction: getBusinessPurchases });
 
 	if (status === 'loading') {
 		return <LoadingSpinner />;
