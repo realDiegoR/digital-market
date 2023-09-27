@@ -12,6 +12,7 @@ import { Login } from './login/login';
 import { PurchasesPage } from './purchases/';
 import { RootPage } from './root/';
 import { SalesPage } from './sales/';
+import { StockPage } from './stock';
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
 			<Route element={<ReturnableMainLayout />}>
 				<Route path="/ventas" element={<SalesPage />} />
 				<Route path="/compras" element={<PurchasesPage />} />
+				<Route path="/inventario" element={<StockPage />} />
 			</Route>
 		</Route>
 	)
