@@ -1,9 +1,9 @@
-import { Button, PageTitle, Wrapper } from '@/common';
 import { Form, FormInput } from '@/components';
+import { Button, PageTitle, Wrapper } from '@/common';
 
 export const Login = () => {
 	return (
-		<Wrapper className="flex flex-col w-80 items-center whitespace-nowrap gap-10 py-10">
+		<Wrapper className="flex w-80 flex-col items-center gap-10 whitespace-nowrap py-10">
 			<PageTitle>
 				<span className="font-bold">Inicia Sesión</span>
 			</PageTitle>
