@@ -11,19 +11,26 @@ export const FormInput = ({
 	minLength,
 	max,
 	min,
+	style = 'box',
 	required = 'Este campo es requerido.',
 	readOnly = false,
 }) => {
 	const { register, formState } = useFormContext();
 
 	const errorMessage = formState.errors[name]?.message;
+	let estilo =
+		'bg-transparent border-2 p-2 rounded border-black/50 read-only:bg-gray-200 read-only:border-black/30 read-only:text-black/90';
+
+	if (style == 'underlined') {
+		estilo = 'border-b-2 border-black focus:outline-none md:w-80';
+	}
 
 	return (
 		<label className="gap-1.5 flex flex-col">
 			<span className="font-bold text-sm">{label}</span>
 			<input
 				type={type}
-				className="bg-transparent border-2 p-2 rounded border-black/50 read-only:bg-gray-200 read-only:border-black/30 read-only:text-black/90"
+				className={estilo}
 				onChange={() => console.log(formState)}
 				placeholder={placeholder}
 				readOnly={readOnly}
@@ -53,6 +60,7 @@ FormInput.propTypes = {
 	maxLength: createInputValidationSchema(PropTypes.number),
 	min: createInputValidationSchema(PropTypes.number),
 	max: createInputValidationSchema(PropTypes.number),
+	style: PropTypes.oneOf(['box', 'underlined']),
 	pattern: createInputValidationSchema(PropTypes.object),
 	placeholder: PropTypes.string,
 	readOnly: PropTypes.bool,

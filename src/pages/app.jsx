@@ -9,6 +9,7 @@ import {
 	RouterProvider,
 } from 'react-router-dom';
 import { Home } from './home/home';
+import { Login } from './login/login';
 
 const info = [
 	{
@@ -37,6 +38,7 @@ const router = createBrowserRouter(
 			<Route index element={<RootPage />} />
 			<Route path="/testtabla" element={<Table list={info} withSelect={true} />} />
 			<Route path="/home" element={<Home />} />
+			<Route path="/login" element={<Login />} />
 		</Route>
 	)
 );
