@@ -14,7 +14,7 @@ export const Button = ({
 
 	if (href) {
 		return (
-			<Link to={href} onClick={onClick} className={`${buttonStyles}`}>
+			<Link to={href} onClick={onClick} className={`${buttonStyles}`} relative="path">
 				{children}
 			</Link>
 		);

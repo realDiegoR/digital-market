@@ -6,11 +6,15 @@ import {
 	IconTruck,
 	IconUser,
 } from '@tabler/icons-react';
+import { Helmet } from 'react-helmet';
 import { LinkCard, PageTitle, Wrapper } from '@/common';
 
 export const Home = () => {
 	return (
 		<Wrapper className="whitespace-pre-line">
+			<Helmet>
+				<title>Home</title>
+			</Helmet>
 			<div className="mb-8 flex flex-row items-center justify-items-center">
 				<IconHome size={40} stroke={1}></IconHome>
 				<PageTitle>Hogar</PageTitle>
@@ -22,13 +26,13 @@ export const Home = () => {
 				<LinkCard href="#" title="Cargar compra" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="#" title="Lista de ventas" icon={<IconArrowLeft />}>
+				<LinkCard href="/ventas" title="Lista de ventas" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="#" title="Lista de compras" icon={<IconArrowLeft />}>
+				<LinkCard href="/compras" title="Lista de compras" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="#" title="Inventario" icon={<IconArrowLeft />}>
+				<LinkCard href="/inventario" title="Inventario" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
 			</div>

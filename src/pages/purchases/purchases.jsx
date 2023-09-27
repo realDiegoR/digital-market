@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import { BusinessInformation } from '@/components/';
 import { Button, LoadingSpinner, PageTitle, Wrapper } from '@/common/';
 import { useFetch } from '@/hooks/';
@@ -9,7 +10,7 @@ export const PurchasesPage = () => {
 		return getPurchases(fakeBusinessId);
 	};
 
-	const { data, status } = useFetch(['purchases'], getBusinessPurchases);
+	const { data, status } = useFetch({ cacheId: 'purchases', queryFunction: getBusinessPurchases });
 
 	if (status === 'loading') {
 		return <LoadingSpinner />;
@@ -17,6 +18,9 @@ export const PurchasesPage = () => {
 
 	return (
 		<>
+			<Helmet>
+				<title>Compras</title>
+			</Helmet>
 			<PageTitle>Lista de Compras</PageTitle>
 			<Wrapper>
 				<div className="my-14">
