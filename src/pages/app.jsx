@@ -12,7 +12,7 @@ import { Login } from './login/login';
 import { PurchasesPage } from './purchases/';
 import { RootPage } from './root/';
 import { SalesPage } from './sales/';
-import { AddStockPage, StockPage } from './stock';
+import { AddStockPage, SearchStockPage, StockPage } from './stock';
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -25,6 +25,7 @@ const router = createBrowserRouter(
 				<Route path="/compras" element={<PurchasesPage />} />
 				<Route path="/inventario" element={<StockPage />} />
 				<Route path="/inventario/nuevo" element={<AddStockPage />} />
+				<Route path="/inventario/buscar" element={<SearchStockPage />} />
 			</Route>
 		</Route>
 	)
