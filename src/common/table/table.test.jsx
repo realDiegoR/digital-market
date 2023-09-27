@@ -1,6 +1,6 @@
-import { describe, test, expect } from 'vitest';
-import { render, screen, within } from '@testing-library/react';
 import { fakerES_MX as faker } from '@faker-js/faker';
+import { render, screen, within } from '@testing-library/react';
+import { describe, expect, test } from 'vitest';
 import { Table } from '.';
 
 describe('Table', () => {
@@ -56,6 +56,14 @@ describe('Table', () => {
 
 		expect(cellsRowOne[0]).toHaveTextContent('Selecc.');
 		expect(cellsRoTwo[0]).toContainHTML('input');
+	});
+
+	test('should render an empty table', () => {
+		render(<Table list={[]} withSelect={true} />);
+
+		const table = screen.queryByRole('table');
+
+		expect(table).not.toBeInTheDocument();
 	});
 });
 

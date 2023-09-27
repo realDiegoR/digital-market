@@ -1,5 +1,5 @@
-import { useFormContext } from 'react-hook-form';
 import PropTypes from 'prop-types';
+import { useFormContext } from 'react-hook-form';
 
 export const FormInput = ({
 	type = 'text',
@@ -18,26 +18,26 @@ export const FormInput = ({
 	const { register, formState } = useFormContext();
 
 	const errorMessage = formState.errors[name]?.message;
-	let estilo =
+	let inputStyles =
 		'bg-transparent border-2 p-2 rounded border-black/50 read-only:bg-gray-200 read-only:border-black/30 read-only:text-black/90';
 
 	if (style == 'underlined') {
-		estilo = 'border-b-2 border-black focus:outline-none md:w-80';
+		inputStyles = 'border-b-2 border-black focus:outline-none md:w-80';
 	}
 
 	return (
-		<label className="gap-1.5 flex flex-col">
-			<span className="font-bold text-sm">{label}</span>
+		<label className="flex flex-col gap-1.5">
+			<span className="text-sm font-bold">{label}</span>
 			<input
 				type={type}
-				className={estilo}
+				className={inputStyles}
 				onChange={() => console.log(formState)}
 				placeholder={placeholder}
 				readOnly={readOnly}
 				{...register(name, { required, maxLength, pattern, minLength, max, min })}
 			/>
 			{errorMessage ? (
-				<span className="block bg-red-200/25 border border-red-300 py-2 px-4 text-red-950">
+				<span className="block border border-red-300 bg-red-200/25 px-4 py-2 text-red-950">
 					{errorMessage}
 				</span>
 			) : null}

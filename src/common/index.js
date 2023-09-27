@@ -5,3 +5,4 @@ export * from './wrapper';
 export * from './hamburger-button';
 export * from './button';
 export * from './table';
+export * from './loading-spinner';

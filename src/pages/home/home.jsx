@@ -1,21 +1,21 @@
-import { LinkCard, PageTitle, Wrapper } from '@/common';
 import {
-	IconTruck,
+	IconArrowLeft,
 	IconCash,
 	IconCoin,
-	IconUser,
-	IconArrowLeft,
 	IconHome,
+	IconTruck,
+	IconUser,
 } from '@tabler/icons-react';
+import { LinkCard, PageTitle, Wrapper } from '@/common';
 
 export const Home = () => {
 	return (
 		<Wrapper className="whitespace-pre-line">
-			<div className="flex flex-row justify-items-center items-center mb-8">
+			<div className="mb-8 flex flex-row items-center justify-items-center">
 				<IconHome size={40} stroke={1}></IconHome>
 				<PageTitle>Hogar</PageTitle>
 			</div>
-			<div className="grid max-w-full sm:grid-flow-row md:grid-cols-2 gap-14">
+			<div className="grid max-w-full gap-14 sm:grid-flow-row md:grid-cols-2">
 				<LinkCard href="#" title="Cargar Venta" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
@@ -33,7 +33,7 @@ export const Home = () => {
 				</LinkCard>
 			</div>
 			<hr className="my-8" />
-			<div className="grid max-w-full sm:grid-flow-row md:grid-cols-2 gap-14">
+			<div className="grid max-w-full gap-14 sm:grid-flow-row md:grid-cols-2">
 				<LinkCard href="#" title="Clientes" icon={<IconUser />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
@@ -48,7 +48,7 @@ export const Home = () => {
 				</LinkCard>
 			</div>
 			<hr className="my-8" />
-			<div className="grid max-w-full sm:grid-flow-row md:grid-cols-2 gap-14 mb-16">
+			<div className="mb-16 grid max-w-full gap-14 sm:grid-flow-row md:grid-cols-2">
 				<LinkCard href="#" title="Gastos" icon={<IconUser />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
