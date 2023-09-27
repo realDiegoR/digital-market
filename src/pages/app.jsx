@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import { MainLayout, ReturnableMainLayout } from '@/layouts/';
 import { Home } from './home/';
+import { Login } from './login/login';
 import { PurchasesPage } from './purchases/';
 import { RootPage } from './root/';
 import { SalesPage } from './sales/';
@@ -17,6 +18,7 @@ const router = createBrowserRouter(
 		<Route path="/" element={<MainLayout />}>
 			<Route index element={<RootPage />} />
 			<Route path="/home" element={<Home />} />
+			<Route path="/login" element={<Login />} />
 			<Route element={<ReturnableMainLayout />}>
 				<Route path="/ventas" element={<SalesPage />} />
 				<Route path="/compras" element={<PurchasesPage />} />
