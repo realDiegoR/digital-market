@@ -1,4 +1,5 @@
 import { IconEdit, IconPlus, IconSearch } from '@tabler/icons-react';
+import { Helmet } from 'react-helmet';
 import { LinkCard, PageTitle, Wrapper } from '@/common/';
 
 const links = [
@@ -25,6 +26,9 @@ const links = [
 export const StockPage = () => {
 	return (
 		<>
+			<Helmet>
+				<title>Inventario</title>
+			</Helmet>
 			<PageTitle>Inventario</PageTitle>
 			<Wrapper className="flex flex-col flex-wrap gap-6 sm:flex-row">
 				{links.map((link) => (

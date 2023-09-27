@@ -1,5 +1,6 @@
+import { Helmet } from 'react-helmet';
 import { BusinessInformation, Form, FormInput } from '@/components';
-import { LoadingSpinner, PageTitle, Wrapper } from '@/common/';
+import { Button, LoadingSpinner, PageTitle, Wrapper } from '@/common/';
 import { useFetch } from '@/hooks';
 import { getAllProducts } from '@/services/products';
 
@@ -10,7 +11,7 @@ export const SearchStockPage = () => {
 		return res;
 	};
 
-	const { data, status } = useFetch(['inventario'], getBusinessProducts);
+	const { data, status } = useFetch({ cacheId: 'stock', queryFunction: getBusinessProducts });
 
 	if (status === 'loading') {
 		return <LoadingSpinner />;
@@ -18,10 +19,16 @@ export const SearchStockPage = () => {
 
 	return (
 		<>
+			<Helmet>
+				<title>Buscar producto</title>
+			</Helmet>
 			<PageTitle>Buscar producto</PageTitle>
 			<Wrapper className="space-y-14">
 				<Form>
-					<FormInput label="Buscar" name="productId" />
+					<FormInput label="Filtrar por código" name="productId" />
+					<div className="flex justify-end">
+						<Button>Filtrar</Button>
+					</div>
 				</Form>
 				<BusinessInformation data={data} />
 			</Wrapper>

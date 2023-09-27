@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import { BusinessInformation } from '@/components/';
 import { Button, LoadingSpinner, PageTitle, Wrapper } from '@/common/';
 import { useFetch } from '@/hooks/';
@@ -29,6 +30,9 @@ export const SalesPage = () => {
 
 	return (
 		<>
+			<Helmet>
+				<title>Ventas</title>
+			</Helmet>
 			<PageTitle>Lista de Ventas</PageTitle>
 			<Wrapper>
 				<div className="my-14">

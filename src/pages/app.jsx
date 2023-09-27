@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/named
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet';
 import {
 	createBrowserRouter,
 	createRoutesFromElements,
@@ -36,6 +37,7 @@ export const App = () => {
 	const queryClient = new QueryClient();
 	return (
 		<QueryClientProvider client={queryClient}>
+			<Helmet titleTemplate="%s | Digital Market" defaultTitle="Digital Market" />
 			<RouterProvider router={router} />
 		</QueryClientProvider>
 	);

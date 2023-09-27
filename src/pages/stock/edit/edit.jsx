@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Form, FormInput } from '@/components';
 import { Button, LoadingSpinner, PageTitle, Wrapper } from '@/common/';
 import { useFetch } from '@/hooks';
@@ -24,6 +25,9 @@ export const EditStockPage = () => {
 
 	return (
 		<>
+			<Helmet>
+				<title>Modificar producto</title>
+			</Helmet>
 			<PageTitle>Modificar producto</PageTitle>
 			<Wrapper>
 				<Form onSubmit={handleSearchProduct} defaultValues={{ productId: '' }}>

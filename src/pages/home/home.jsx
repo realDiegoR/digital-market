@@ -6,11 +6,15 @@ import {
 	IconTruck,
 	IconUser,
 } from '@tabler/icons-react';
+import { Helmet } from 'react-helmet';
 import { LinkCard, PageTitle, Wrapper } from '@/common';
 
 export const Home = () => {
 	return (
 		<Wrapper className="whitespace-pre-line">
+			<Helmet>
+				<title>Home</title>
+			</Helmet>
 			<div className="mb-8 flex flex-row items-center justify-items-center">
 				<IconHome size={40} stroke={1}></IconHome>
 				<PageTitle>Hogar</PageTitle>
