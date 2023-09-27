@@ -26,13 +26,13 @@ export const Home = () => {
 				<LinkCard href="#" title="Cargar compra" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="#" title="Lista de ventas" icon={<IconArrowLeft />}>
+				<LinkCard href="/ventas" title="Lista de ventas" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="#" title="Lista de compras" icon={<IconArrowLeft />}>
+				<LinkCard href="/compras" title="Lista de compras" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="#" title="Inventario" icon={<IconArrowLeft />}>
+				<LinkCard href="/inventario" title="Inventario" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
 			</div>

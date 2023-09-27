@@ -8,7 +8,7 @@ export const RootPage = () => {
 			<PageTitle>Home</PageTitle>
 			<Wrapper>
 				<LinkCard
-					href="/page"
+					href="/home"
 					title="Agregar nuevo producto"
 					icon={<IconPlus size={32} stroke={1} />}
 				>
