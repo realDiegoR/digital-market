@@ -1,23 +1,20 @@
 import PropTypes from 'prop-types';
-import { Wrapper } from '../wrapper';
 
 export const Table = ({ list = [], withSelect = false, size = 'small' }) => {
 	if (list.length === 0 || Object.keys(list[0]).length === 0) {
 		return (
-			<Wrapper>
-				<div
-					className="p-10 text-center bg-gray-200/60 rounded-md text-gray-700 lg:text-md"
-					style={{ textWrap: 'balance' }}
-				>
-					Todavía no hay información disponible para mostrar.
-				</div>
-			</Wrapper>
+			<div
+				className="rounded-md bg-gray-200/60 p-10 text-center text-gray-700 lg:text-md"
+				style={{ textWrap: 'balance' }}
+			>
+				Todavía no hay información disponible para mostrar.
+			</div>
 		);
 	}
 
 	return (
 		<div className="w-full overflow-x-auto">
-			<table>
+			<table className="w-full">
 				<thead>
 					<TableRow data={list[0] ?? {}} type="head" withSelect={withSelect} size={size} />
 				</thead>

@@ -6,38 +6,21 @@ import {
 	Route,
 	RouterProvider,
 } from 'react-router-dom';
-import { MainLayout } from '@/layouts/main.layout';
-import { Table } from '../common/table';
-import { Home } from './home/home';
-import { RootPage } from './root/root';
-
-const info = [
-	{
-		codigo: 1223344,
-		producto: 'manzana pera casa mi mama me mima',
-		precio: 22.3,
-		importe: 3,
-	},
-	{
-		codigo: 897987,
-		producto: 'frutilladddddddddddddddddddddddddddddddddddddddasdasd',
-		precio: 22.3,
-		importe: 3,
-	},
-	{
-		codigo: 897987,
-		producto: 'frutilla',
-		precio: 22.3,
-		importe: 3,
-	},
-];
+import { MainLayout, ReturnableMainLayout } from '@/layouts/';
+import { Home } from './home/';
+import { PurchasesPage } from './purchases/';
+import { RootPage } from './root/';
+import { SalesPage } from './sales/';
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route path="/" element={<MainLayout />}>
 			<Route index element={<RootPage />} />
-			<Route path="/testtabla" element={<Table list={info} withSelect={true} />} />
 			<Route path="/home" element={<Home />} />
+			<Route element={<ReturnableMainLayout />}>
+				<Route path="/ventas" element={<SalesPage />} />
+				<Route path="/compras" element={<PurchasesPage />} />
+			</Route>
 		</Route>
 	)
 );

@@ -5,7 +5,7 @@ import logoUrl from '@/assets/images/digital-market.webp';
 
 export const Footer = () => {
 	return (
-		<footer className="bg-black py-8">
+		<footer className="mt-8 bg-black py-8">
 			<Wrapper className="flex justify-between">
 				<div>
 					<figure className="flex items-start">

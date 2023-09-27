@@ -1,9 +1,9 @@
 const baseStyles =
-	'flex gap-2 py-2 px-5 my-4 text-black text-sm rounded-md transition duration-200 disabled:opacity-50';
+	'flex gap-2 py-2 px-5 text-black text-sm rounded-md transition duration-200 disabled:opacity-50';
 
 export const widthStyles = {
 	'max-content': 'w-max',
-	full: 'w-full justify-center',
+	full: 'w-full justify-center py-3',
 };
 
 export const variantStyles = {
