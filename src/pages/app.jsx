@@ -8,6 +8,7 @@ import {
 	RouterProvider,
 } from 'react-router-dom';
 import { MainLayout, ReturnableMainLayout } from '@/layouts/';
+import { ChargeSalePage } from './charge-sale';
 import { Home } from './home/';
 import { Login } from './login/login';
 import { PurchasesPage } from './purchases/';
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
 			<Route path="/home" element={<Home />} />
 			<Route path="/login" element={<Login />} />
 			<Route element={<ReturnableMainLayout />}>
+				<Route path="/cargar_venta" element={<ChargeSalePage />} />
 				<Route path="/ventas" element={<SalesPage />} />
 				<Route path="/compras" element={<PurchasesPage />} />
 				<Route path="/inventario" element={<StockPage />} />
