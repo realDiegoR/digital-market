@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
+import { forwardRef } from 'react';
 
-export const Table = ({ list = [], withSelect = false, size = 'small' }) => {
+export const Table = forwardRef(function ForwardedTable(
+	{ list = [], withSelect = false, size = 'small' },
+	ref
+) {
 	if (list.length === 0 || Object.keys(list[0]).length === 0) {
 		return (
 			<div
@@ -14,7 +18,7 @@ export const Table = ({ list = [], withSelect = false, size = 'small' }) => {
 
 	return (
 		<div className="w-full overflow-x-auto">
-			<table className="w-full">
+			<table className="w-full" ref={ref}>
 				<thead>
 					<TableRow data={list[0] ?? {}} type="head" withSelect={withSelect} size={size} />
 				</thead>
@@ -26,7 +30,7 @@ export const Table = ({ list = [], withSelect = false, size = 'small' }) => {
 			</table>
 		</div>
 	);
-};
+});
 
 Table.propTypes = {
 	list: PropTypes.array.isRequired,
