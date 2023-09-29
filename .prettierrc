@@ -16,6 +16,7 @@
 		"^@/layouts",
 		"^@/components",
 		"^@/common",
+		"^@/store",
 		"^@/hooks",
 		"^@/services",
 		"^@/constants",
