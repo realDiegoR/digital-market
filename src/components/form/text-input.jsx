@@ -55,7 +55,7 @@ FormInput.propTypes = {
 	type: PropTypes.oneOf(['text', 'password', 'email', 'tel', 'url', 'number', 'date']),
 	label: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
-	required: PropTypes.string, // recibe el mensaje de error
+	required: PropTypes.oneOf([PropTypes.string, false]), // recibe el mensaje de error
 	minLength: createInputValidationSchema(PropTypes.number),
 	maxLength: createInputValidationSchema(PropTypes.number),
 	min: createInputValidationSchema(PropTypes.number),
