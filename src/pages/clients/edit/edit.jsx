@@ -6,9 +6,9 @@ export const EditClient = () => {
 	return (
 		<>
 			<Helmet>
-				<title> Modificar cliente</title>
+				<title>Modificar cliente</title>
 			</Helmet>
-			<PageTitle> Modificar cliente</PageTitle>
+			<PageTitle>Modificar cliente</PageTitle>
 			<Wrapper>
 				<Form>
 					<FormInput label="Código" name="codigo" type="number" />
