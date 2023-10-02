@@ -6,7 +6,7 @@ export const AddClient = () => {
 	return (
 		<>
 			<Helmet>
-				<title> Agregar nueno cliente</title>
+				<title> Agregar nuevo cliente</title>
 			</Helmet>
 			<PageTitle> Agregar nuevo cliente</PageTitle>
 			<Wrapper>

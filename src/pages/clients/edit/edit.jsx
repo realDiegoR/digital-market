@@ -19,11 +19,10 @@ export const EditClient = () => {
 					<FormInput label="Costo" name="costo" type="number" />
 					<FormInput label="Tipo" name="tipo" />
 					<FormInput label="Saldo" name="saldo" type="number" />
-
-					<div className="p- flex justify-around">
-						<button className="rounded-md border-2 border-red-600 pl-4 pr-4 text-red-600 ">
+					<div className="flex justify-around">
+						<Button variant="danger" type="submit">
 							Cancelar
-						</button>
+						</Button>
 						<Button type="submit">Guardar Cambios</Button>
 					</div>
 				</Form>
