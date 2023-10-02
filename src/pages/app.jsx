@@ -8,6 +8,10 @@ import {
 	RouterProvider,
 } from 'react-router-dom';
 import { MainLayout, ReturnableMainLayout } from '@/layouts/';
+import { EditClient } from './clients';
+import { AddClient } from './clients/add';
+import { Client } from './clients/client';
+import { SearchClient } from './clients/search';
 import { Home } from './home/';
 import { Login } from './login/login';
 import { PurchasesPage } from './purchases/';
@@ -28,6 +32,10 @@ const router = createBrowserRouter(
 				<Route path="/inventario/nuevo" element={<AddStockPage />} />
 				<Route path="/inventario/buscar" element={<SearchStockPage />} />
 				<Route path="/inventario/editar" element={<EditStockPage />} />
+				<Route path="/clientes" element={<Client />} />
+				<Route path="/clientes/agregar" element={<AddClient />} />
+				<Route path="/clientes/buscar" element={<SearchClient />} />
+				<Route path="/clientes/editar" element={<EditClient />} />
 			</Route>
 		</Route>
 	)
