@@ -15,8 +15,8 @@ import { Client } from './clients/client';
 import { SearchClient } from './clients/search';
 import { Home } from './home/';
 import { Login } from './login/login';
-import { Pay } from './pay';
-import { Payment } from './payment';
+import { PayProviderPage } from './pay/PayProviderPage';
+import { ChargeClientPage } from './payment/ChargeClientPage';
 import { PurchasesPage } from './purchases/';
 import { RootPage } from './root/';
 import { SalesPage } from './sales/';
@@ -40,8 +40,8 @@ const router = createBrowserRouter(
 				<Route path="/clientes/agregar" element={<AddClient />} />
 				<Route path="/clientes/buscar" element={<SearchClient />} />
 				<Route path="/clientes/editar" element={<EditClient />} />
-				<Route path="/cobro" element={<Payment />} />
-				<Route path="/pago" element={<Pay />} />
+				<Route path="/realizar_cobro" element={<ChargeClientPage />} />
+				<Route path="/realizar_pago" element={<PayProviderPage />} />
 				<Route path="/gasto" element={<Spent />} />
 				<Route path="/cuentas" element={<Account />} />
 				<Route path="/cuentas/agregar" element={<AddAccount />} />
