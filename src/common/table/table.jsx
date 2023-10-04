@@ -1,10 +1,6 @@
 import PropTypes from 'prop-types';
-import { forwardRef } from 'react';
 
-export const Table = forwardRef(function ForwardedTable(
-	{ list = [], withSelect = false, size = 'small' },
-	ref
-) {
+export const Table = ({ list = [], withSelect = false, size = 'small', onRowSelect }) => {
 	if (list.length === 0 || Object.keys(list[0]).length === 0) {
 		return (
 			<div
@@ -18,27 +14,34 @@ export const Table = forwardRef(function ForwardedTable(
 
 	return (
 		<div className="w-full overflow-x-auto">
-			<table className="w-full" ref={ref}>
+			<table className="w-full">
 				<thead>
 					<TableRow data={list[0] ?? {}} type="head" withSelect={withSelect} size={size} />
 				</thead>
 				<tbody>
 					{list.map((obj, index) => (
-						<TableRow key={index} data={obj} withSelect={withSelect} size={size} />
+						<TableRow
+							key={index}
+							data={obj}
+							withSelect={withSelect}
+							size={size}
+							onRowSelect={() => onRowSelect(obj)}
+						/>
 					))}
 				</tbody>
 			</table>
 		</div>
 	);
-});
+};
 
 Table.propTypes = {
 	list: PropTypes.array.isRequired,
 	withSelect: PropTypes.bool,
+	onRowSelect: PropTypes.func,
 	size: PropTypes.oneOf(['small', 'big']),
 };
 
-function TableRow({ type = 'body', withSelect, size, data }) {
+function TableRow({ type = 'body', withSelect, size, data, onRowSelect }) {
 	let entries;
 
 	if (type === 'head') {
@@ -49,7 +52,7 @@ function TableRow({ type = 'body', withSelect, size, data }) {
 
 	return (
 		<tr>
-			{withSelect && <SelectCell type={type} size={size} />}
+			{withSelect && <SelectCell type={type} size={size} onRowSelect={onRowSelect} />}
 			{entries.map((entry, index) => (
 				<Cell key={index} size={size} type={type}>
 					{entry}
@@ -64,6 +67,7 @@ TableRow.propTypes = {
 	type: PropTypes.oneOf(['head', 'body']),
 	size: PropTypes.oneOf(['small', 'big']),
 	withSelect: PropTypes.bool,
+	onRowSelect: PropTypes.func,
 };
 
 function Cell({ children, size = 'small', type = 'body' }) {
@@ -95,7 +99,7 @@ Cell.propTypes = {
 	size: PropTypes.oneOf(['small', 'big']),
 };
 
-function SelectCell({ type = 'body', size = 'small' }) {
+function SelectCell({ type = 'body', size = 'small', onRowSelect }) {
 	if (type === 'head') {
 		return (
 			<Cell size={size} type="head">
@@ -106,7 +110,7 @@ function SelectCell({ type = 'body', size = 'small' }) {
 
 	return (
 		<Cell type="body" size={size}>
-			<input type="checkbox"></input>
+			<input type="checkbox" onChange={onRowSelect}></input>
 		</Cell>
 	);
 }
@@ -114,4 +118,5 @@ function SelectCell({ type = 'body', size = 'small' }) {
 SelectCell.propTypes = {
 	type: PropTypes.oneOf(['head', 'body']),
 	size: PropTypes.oneOf(['small', 'big']),
+	onRowSelect: PropTypes.func,
 };
