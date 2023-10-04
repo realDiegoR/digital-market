@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { PageTitle, Wrapper } from '@/common';
 import { useChargeStore } from '@/store';
-import { StepOnePage } from './step-1';
-import { StepTwoPage } from './step-2';
+import { InitialDataPage } from './initial-data';
+import { LoadProductsPage } from './load-products';
 
 export const ChargeSalePage = () => {
 	const { currentStep, reset } = useChargeStore();
@@ -19,8 +19,8 @@ export const ChargeSalePage = () => {
 			</Helmet>
 			<PageTitle>Cargar Venta</PageTitle>
 			<Wrapper>
-				{currentStep === 1 && <StepOnePage />}
-				{currentStep === 2 && <StepTwoPage />}
+				{currentStep === 1 && <InitialDataPage />}
+				{currentStep === 2 && <LoadProductsPage />}
 			</Wrapper>
 		</>
 	);

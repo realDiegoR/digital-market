@@ -12,7 +12,18 @@ export const useChargeStore = create((set) => ({
 	products: [],
 	setSubject: (newSubject) => set(() => ({ subject: newSubject })),
 	addProduct: (newProduct) =>
-		set((state) => ({ products: state.products.push(newProduct) && state.products })),
+		set((state) => {
+			const newProductList = [...state.products];
+			const sameProductIndex = newProductList.findIndex(
+				(product) => product.producto.nombre === newProduct.producto.nombre
+			);
+			if (sameProductIndex !== -1) {
+				newProductList[sameProductIndex].cantidad += Number(newProduct.cantidad);
+			} else {
+				newProductList.push(newProduct);
+			}
+			return { products: newProductList };
+		}),
 	removeProduct: (productName) =>
 		set((state) => ({
 			products: state.products.filter((product) => product.producto !== productName),
