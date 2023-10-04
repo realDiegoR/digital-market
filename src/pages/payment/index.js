@@ -1,1 +1,1 @@
-export * from './ChargeClientPage'
+export * from './ChargeClientPage';

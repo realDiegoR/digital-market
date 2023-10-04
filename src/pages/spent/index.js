@@ -1,1 +1,1 @@
-export * from './spent'
+export * from './spent';

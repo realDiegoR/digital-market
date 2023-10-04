@@ -19,10 +19,10 @@ export function useFetch({
 		enabled: !!triggerValue,
 		select,
 	});
-	console.warn(error);
 	return {
 		data,
 		status,
 		fetchStatus,
+		error,
 	};
 }

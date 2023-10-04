@@ -1,1 +1,1 @@
-export * from './PayProviderPage'
+export * from './PayProviderPage';
