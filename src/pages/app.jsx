@@ -8,6 +8,7 @@ import {
 	RouterProvider,
 } from 'react-router-dom';
 import { MainLayout, ReturnableMainLayout } from '@/layouts/';
+import { Account, AddAccount, EditAccount, SearchAccount } from './accounts';
 import { ChargeSalePage } from './charge-sale';
 import { EditClient } from './clients';
 import { AddClient } from './clients/add';
@@ -15,9 +16,12 @@ import { Client } from './clients/client';
 import { SearchClient } from './clients/search';
 import { Home } from './home/';
 import { Login } from './login/login';
+import { PayProviderPage } from './pay/PayProviderPage';
+import { ChargeClientPage } from './payment/ChargeClientPage';
 import { PurchasesPage } from './purchases/';
 import { RootPage } from './root/';
 import { SalesPage } from './sales/';
+import { Spent } from './spent';
 import { AddStockPage, EditStockPage, SearchStockPage, StockPage } from './stock';
 
 const router = createBrowserRouter(
@@ -38,6 +42,13 @@ const router = createBrowserRouter(
 				<Route path="/clientes/agregar" element={<AddClient />} />
 				<Route path="/clientes/buscar" element={<SearchClient />} />
 				<Route path="/clientes/editar" element={<EditClient />} />
+				<Route path="/realizar_cobro" element={<ChargeClientPage />} />
+				<Route path="/realizar_pago" element={<PayProviderPage />} />
+				<Route path="/gasto" element={<Spent />} />
+				<Route path="/cuentas" element={<Account />} />
+				<Route path="/cuentas/agregar" element={<AddAccount />} />
+				<Route path="/cuentas/buscar" element={<SearchAccount />} />
+				<Route path="/cuentas/editar" element={<EditAccount />} />
 			</Route>
 		</Route>
 	)
