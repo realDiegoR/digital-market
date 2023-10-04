@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 import { MainLayout, ReturnableMainLayout } from '@/layouts/';
 import { Account, AddAccount, EditAccount, SearchAccount } from './accounts';
-import { ChargeSalePage } from './charge-sale';
+import { ChargePurchasePage, ChargeSalePage } from './charge';
 import { EditClient } from './clients';
 import { AddClient } from './clients/add';
 import { Client } from './clients/client';
@@ -32,6 +32,7 @@ const router = createBrowserRouter(
 			<Route path="/login" element={<Login />} />
 			<Route element={<ReturnableMainLayout />}>
 				<Route path="/cargar_venta" element={<ChargeSalePage />} />
+				<Route path="/cargar_compra" element={<ChargePurchasePage />} />
 				<Route path="/ventas" element={<SalesPage />} />
 				<Route path="/compras" element={<PurchasesPage />} />
 				<Route path="/inventario" element={<StockPage />} />

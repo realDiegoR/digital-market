@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Autocomplete, BusinessInformation, Form, FormInput, Modal } from '@/components';
-import { Button, LoadingSpinner } from '@/common';
+import { Button } from '@/common';
 import { useChargeStore } from '@/store/';
 import { useFetch } from '@/hooks/';
 import { getAllProducts } from '@/services/products';
@@ -27,7 +27,7 @@ export const LoadProductsPage = () => {
 		setSelectedProducts(checkedProducts);
 	};
 
-	const { data, status } = useFetch({
+	const { data } = useFetch({
 		cacheId: 'products',
 		queryFunction: getBusinessProducts,
 	});
@@ -38,8 +38,6 @@ export const LoadProductsPage = () => {
 		precio: `$${producto.valor * cantidad}`,
 	}));
 
-	if (status === 'loading') return <LoadingSpinner />;
-
 	return (
 		<>
 			<section className="space-y-4">
@@ -49,7 +47,7 @@ export const LoadProductsPage = () => {
 						<Autocomplete
 							label="Producto"
 							name="producto"
-							data={data}
+							data={data ?? []}
 							filterFn={(query) => (product) =>
 								`${product.nombre}`.toLowerCase().includes(query.toLowerCase())
 							}
@@ -60,10 +58,6 @@ export const LoadProductsPage = () => {
 							name="cantidad"
 							type="number"
 							min={{ value: 1, message: 'Número invalido' }}
-							max={{
-								value: data.cantidad,
-								message: `No hay suficiente inventario disponible. Hay: ${data.cantidad}.`,
-							}}
 						/>
 					</div>
 					<span className="flex justify-end">
@@ -73,7 +67,7 @@ export const LoadProductsPage = () => {
 			</section>
 			<div className="my-8 border-t pt-8">
 				<BusinessInformation
-					title="Detalles de la venta"
+					title="Detalles del carro de compras"
 					onRowSelect={selectProductRow}
 					data={tableList}
 				/>

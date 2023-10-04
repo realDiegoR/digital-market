@@ -23,7 +23,7 @@ export const Home = () => {
 				<LinkCard href="/cargar_venta" title="Cargar Venta" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="#" title="Cargar compra" icon={<IconArrowLeft />}>
+				<LinkCard href="/cargar_compra" title="Cargar compra" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
 				<LinkCard href="/ventas" title="Lista de ventas" icon={<IconArrowLeft />}>
