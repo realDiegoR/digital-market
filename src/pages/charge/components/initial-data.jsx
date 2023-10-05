@@ -42,9 +42,13 @@ export const InitialDataPage = ({ fetchProfiles, profile }) => {
 					placeholder={`Nombre del ${profile}`}
 					data={data ?? []}
 					filterFn={(query) => (profile) =>
-						`${profile.nombre} ${profile.apellido}`.toLowerCase().includes(query.toLowerCase())
+						`${profile.nombre} ${profile.apellido} - ${profile.email}`
+							.toLowerCase()
+							.includes(query.toLowerCase())
 					}
-					displayValueFn={(profile) => (profile ? `${profile.nombre} ${profile.apellido}` : '')}
+					displayValueFn={(profile) =>
+						profile ? `${profile.nombre} ${profile.apellido} - ${profile.email}` : ''
+					}
 				/>
 				<Button type="submit" width="full">
 					Continuar
