@@ -1,8 +1,14 @@
 import { Helmet } from 'react-helmet';
 import { Form, FormInput } from '@/components';
 import { Button, PageTitle, Wrapper } from '@/common/';
+import { postProfile } from '@/services/profiles';
 
 export const AddClient = () => {
+	const handleSubmit = (data) => {
+		postProfile(data);
+		// console.log(data);
+	};
+
 	return (
 		<>
 			<Helmet>
@@ -10,15 +16,16 @@ export const AddClient = () => {
 			</Helmet>
 			<PageTitle> Agregar nuevo cliente</PageTitle>
 			<Wrapper>
-				<Form>
+				<Form onSubmit={handleSubmit}>
 					<FormInput label="Nombre" name="nombre" />
-					<FormInput label="Teléfono" name="teléfono" type="number" />
-					<FormInput label="Correo" name="correo" />
-					<FormInput label="Dirección" name="dirreción" />
+					<FormInput label="Apellido" name="apellido" />
+					<FormInput label="Celular" name="celular" type="number" />
+					<FormInput label="Email" name="email" />
+					<FormInput label="Dirección" name="direccion" />
+					<div className="mt-6 flex justify-end ">
+						<Button type="submit">Agregar cliente</Button>
+					</div>
 				</Form>
-				<div className="mt-6 flex justify-end ">
-					<Button type="submit">Agregar cliente</Button>
-				</div>
 			</Wrapper>
 		</>
 	);

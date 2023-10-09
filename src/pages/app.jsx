@@ -8,6 +8,7 @@ import {
 	RouterProvider,
 } from 'react-router-dom';
 import { MainLayout, ReturnableMainLayout } from '@/layouts/';
+import { getClients } from '@/services/clients';
 import { Account, AddAccount, EditAccount, SearchAccount } from './accounts';
 import { ChargePurchasePage, ChargeSalePage } from './charge';
 import { EditClient } from './clients';
@@ -18,6 +19,8 @@ import { Home } from './home/';
 import { Login } from './login/login';
 import { PayProviderPage } from './pay/PayProviderPage';
 import { ChargeClientPage } from './payment/ChargeClientPage';
+import { EditProvider, Provider, SearchProvider } from './provider';
+import { AddProveedor } from './provider/add';
 import { PurchasesPage } from './purchases/';
 import { RootPage } from './root/';
 import { SalesPage } from './sales/';
@@ -41,7 +44,10 @@ const router = createBrowserRouter(
 				<Route path="/inventario/editar" element={<EditStockPage />} />
 				<Route path="/clientes" element={<Client />} />
 				<Route path="/clientes/agregar" element={<AddClient />} />
-				<Route path="/clientes/buscar" element={<SearchClient />} />
+				<Route
+					path="/clientes/buscar"
+					element={<SearchClient fetchProfiles={getClients} profile="cliente" />}
+				/>
 				<Route path="/clientes/editar" element={<EditClient />} />
 				<Route path="/realizar_cobro" element={<ChargeClientPage />} />
 				<Route path="/realizar_pago" element={<PayProviderPage />} />
@@ -50,6 +56,10 @@ const router = createBrowserRouter(
 				<Route path="/cuentas/agregar" element={<AddAccount />} />
 				<Route path="/cuentas/buscar" element={<SearchAccount />} />
 				<Route path="/cuentas/editar" element={<EditAccount />} />
+				<Route path="/provedor" element={<Provider />} />
+				<Route path="/provedor/agregar" element={<AddProveedor />} />
+				<Route path="/provedor/buscar" element={<SearchProvider />} />
+				<Route path="/provedor/editar" element={<EditProvider />} />
 			</Route>
 		</Route>
 	)

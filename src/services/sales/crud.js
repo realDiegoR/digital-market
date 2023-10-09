@@ -7,12 +7,8 @@ const endpoint = '/ventas';
  */
 
 export const getAllSales = async (businessId) => {
-	try {
-		const response = await api.get(`${endpoint}/${businessId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${businessId}`);
+	return response.data;
 };
 
 /**
@@ -21,12 +17,8 @@ export const getAllSales = async (businessId) => {
  */
 
 export const getSale = async (businessId, saleId) => {
-	try {
-		const response = await api.get(`${endpoint}/${businessId}/${saleId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${businessId}/${saleId}`);
+	return response.data;
 };
 
 /**
@@ -34,12 +26,8 @@ export const getSale = async (businessId, saleId) => {
  */
 
 export const createSale = async (sale) => {
-	try {
-		const response = await api.post(endpoint, sale);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(endpoint, sale);
+	return response.data;
 };
 
 /**
@@ -48,10 +36,6 @@ export const createSale = async (sale) => {
  */
 
 export const deleteSale = async (businessId, saleId) => {
-	try {
-		const response = await api.delete(`${endpoint}/${businessId}/${saleId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(`${endpoint}/${businessId}/${saleId}`);
+	return response.data;
 };

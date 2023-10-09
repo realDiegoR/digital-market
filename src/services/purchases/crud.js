@@ -8,12 +8,8 @@ const endpoint = '/compras';
  * @returns {Promise<Array<Object>>} Array of purchase objects.
  */
 export const getPurchases = async (negocioId) => {
-	try {
-		const response = await api.get(`${endpoint}/${negocioId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${negocioId}`);
+	return response.data;
 };
 
 /**
@@ -23,12 +19,8 @@ export const getPurchases = async (negocioId) => {
  * @returns {Promise<Object>} The purchase object.
  */
 export const getPurchase = async (negocioId, compraId) => {
-	try {
-		const response = await api.get(`${endpoint}/${negocioId}/${compraId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${negocioId}/${compraId}`);
+	return response.data;
 };
 
 /**
@@ -37,12 +29,8 @@ export const getPurchase = async (negocioId, compraId) => {
  * @returns {Promise<Object>} The created purchase object.
  */
 export const createPurchase = async (body) => {
-	try {
-		const response = await api.post(endpoint, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(endpoint, body);
+	return response.data;
 };
 
 /**
@@ -52,10 +40,6 @@ export const createPurchase = async (body) => {
  * @returns {Promise<Object>} The deleted purchase object.
  */
 export const deletePurchase = async (negocioId, compraId) => {
-	try {
-		const response = await api.delete(`${endpoint}/${negocioId}/${compraId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(`${endpoint}/${negocioId}/${compraId}`);
+	return response.data;
 };

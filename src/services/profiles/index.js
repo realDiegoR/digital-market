@@ -5,12 +5,8 @@ import { api } from '../api';
  */
 
 export const getProfile = async (id) => {
-	try {
-		const response = await api.get(`/perfiles/${id}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`/perfiles/${id}`);
+	return response.data;
 };
 
 /**
@@ -18,12 +14,8 @@ export const getProfile = async (id) => {
  */
 
 export const postProfile = async (body) => {
-	try {
-		const response = await api.post('/perfiles/', body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post('/perfiles/', body);
+	return response.data;
 };
 
 /**
@@ -32,12 +24,9 @@ export const postProfile = async (body) => {
  */
 
 export const updateProfile = async (id, body) => {
-	try {
-		const response = await api.patch(`/perfiles/${id}`, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.patch(`/perfiles/${id}`, body);
+	return response.data;
+
 };
 
 /**
@@ -45,10 +34,6 @@ export const updateProfile = async (id, body) => {
  */
 
 export const deleteProfile = async (id) => {
-	try {
-		const response = await api.delete(`/perfiles/${id}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(`/perfiles/${id}`);
+	return response.data;
 };

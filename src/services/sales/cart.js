@@ -7,12 +7,8 @@ const endpoint = '/ventas';
  */
 
 export const addItemToSale = async (body) => {
-	try {
-		const response = await api.post(`${endpoint}/add-item`, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(`${endpoint}/add-item`, body);
+	return response.data;
 };
 
 /**
@@ -22,10 +18,6 @@ export const addItemToSale = async (body) => {
  */
 
 export const removeItemFromSale = async (businessId, saleId, productId) => {
-	try {
-		const response = await api.delete(`${endpoint}/sub-item/${businessId}/${saleId}/${productId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(`${endpoint}/sub-item/${businessId}/${saleId}/${productId}`);
+	return response.data;
 };

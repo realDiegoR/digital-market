@@ -7,12 +7,8 @@ const endpoint = '/ventas';
  */
 
 export const addChargeToSale = async (body) => {
-	try {
-		const response = await api.post(`${endpoint}/add-cobro`, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(`${endpoint}/add-cobro`, body);
+	return response.data;
 };
 
 /**
@@ -22,12 +18,8 @@ export const addChargeToSale = async (body) => {
  */
 
 export const removeChargeFromSale = async (businessId, saleId, chargeId) => {
-	try {
-		const response = await api.delete(`${endpoint}/sub-cobro/${businessId}/${saleId}/${chargeId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(`${endpoint}/sub-cobro/${businessId}/${saleId}/${chargeId}`);
+	return response.data;
 };
 
 /**
@@ -35,12 +27,8 @@ export const removeChargeFromSale = async (businessId, saleId, chargeId) => {
  */
 
 export const addPendingChargeToSale = async (body) => {
-	try {
-		const response = await api.post(`${endpoint}/add-cobroPendiente`, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(`${endpoint}/add-cobroPendiente`, body);
+	return response.data;
 };
 
 /**
@@ -50,14 +38,10 @@ export const addPendingChargeToSale = async (body) => {
  */
 
 export const removePendingChargeFromSale = async (businessId, saleId, pendingChargeId) => {
-	try {
-		const response = await api.delete(
-			`${endpoint}/sub-cobroPendiente/${businessId}/${saleId}/${pendingChargeId}`
-		);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(
+		`${endpoint}/sub-cobroPendiente/${businessId}/${saleId}/${pendingChargeId}`
+	);
+	return response.data;
 };
 
 /**
@@ -66,10 +50,6 @@ export const removePendingChargeFromSale = async (businessId, saleId, pendingCha
  */
 
 export const finalizeSale = async (businessId, saleId) => {
-	try {
-		const response = await api.post(`${endpoint}/${businessId}/${saleId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(`${endpoint}/${businessId}/${saleId}`);
+	return response.data;
 };

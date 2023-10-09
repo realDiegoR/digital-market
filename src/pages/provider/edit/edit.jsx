@@ -1,21 +1,16 @@
 import { Helmet } from 'react-helmet';
 import { Form, FormInput } from '@/components';
 import { Button, PageTitle, Wrapper } from '@/common/';
-import { api } from '@/services/api';
 
-export const EditClient = () => {
-	const handleSubmit = (data) => {
-		api.patch('/perfiles', data);
-		console.log(data);
-	};
+export const EditProvider = () => {
 	return (
 		<>
 			<Helmet>
-				<title>Modificar cliente</title>
+				<title>Modificar proveedor</title>
 			</Helmet>
-			<PageTitle>Modificar cliente</PageTitle>
+			<PageTitle>Modificar proveedor</PageTitle>
 			<Wrapper>
-				<Form onSubmit={handleSubmit}>
+				<Form>
 					<FormInput label="Código" name="codigo" type="number" />
 					<FormInput label="Nombre" name="nombre" />
 					<FormInput label="Telefono" name="telefono" />

@@ -13,12 +13,8 @@ const endpoint = '/compras';
  * @returns {Promise<Object>} The purchase object with the added payment.
  */
 export const addPaymentToPurchase = async (body) => {
-	try {
-		const response = await api.post(`${endpoint}/add-pago`, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(`${endpoint}/add-pago`, body);
+	return response.data;
 };
 
 /**
@@ -29,12 +25,8 @@ export const addPaymentToPurchase = async (body) => {
  * @returns {Promise<Object>} The purchase object with the removed payment.
  */
 export const removePaymentFromPurchase = async (negocioId, compraId, pagoId) => {
-	try {
-		const response = await api.delete(`${endpoint}/sub-pago/${negocioId}/${compraId}/${pagoId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(`${endpoint}/sub-pago/${negocioId}/${compraId}/${pagoId}`);
+	return response.data;
 };
 
 /**
@@ -48,12 +40,8 @@ export const removePaymentFromPurchase = async (negocioId, compraId, pagoId) => 
  * @returns {Promise<Object>} The purchase object with the added pending payment.
  */
 export const addPendingPaymentToPurchase = async (body) => {
-	try {
-		const response = await api.post(`${endpoint}/add-pagoPendiente`, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(`${endpoint}/add-pagoPendiente`, body);
+	return response.data;
 };
 
 /**
@@ -64,12 +52,9 @@ export const addPendingPaymentToPurchase = async (body) => {
  * @returns {Promise<Object>} The purchase object with the removed pending payment.
  */
 export const removePendingPaymentFromPurchase = async (negocioId, compraId, pagoPendienteId) => {
-	try {
-		const response = await api.delete(
-			`${endpoint}/sub-pagoPendiente/${negocioId}/${compraId}/${pagoPendienteId}`
-		);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(
+		`${endpoint}/sub-pagoPendiente/${negocioId}/${compraId}/${pagoPendienteId}`
+	);
+	return response.data;
+
 };

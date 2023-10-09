@@ -7,12 +7,8 @@ const endpoint = '/usuarios';
  */
 
 export const getAllUsers = async (businessId) => {
-	try {
-		const response = await api.get(`${endpoint}/${businessId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${businessId}`);
+	return response.data;
 };
 
 /**
@@ -21,12 +17,8 @@ export const getAllUsers = async (businessId) => {
  */
 
 export const getUser = async (businessId, userId) => {
-	try {
-		const response = await api.get(`${endpoint}/${businessId}/${userId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${businessId}/${userId}`);
+	return response.data;
 };
 
 /**
@@ -34,12 +26,8 @@ export const getUser = async (businessId, userId) => {
  */
 
 export const createUser = async (body) => {
-	try {
-		const response = await api.post(endpoint, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(endpoint, body);
+	return response.data;
 };
 
 /**
@@ -49,12 +37,8 @@ export const createUser = async (body) => {
  */
 
 export const updateUser = async (businessId, userId, body) => {
-	try {
-		const response = await api.patch(`${endpoint}/${businessId}/${userId}`, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.patch(`${endpoint}/${businessId}/${userId}`, body);
+	return response.data;
 };
 
 /**
@@ -63,10 +47,6 @@ export const updateUser = async (businessId, userId, body) => {
  */
 
 export const deleteUser = async (businessId, userId) => {
-	try {
-		const response = await api.delete(`${endpoint}/${businessId}/${userId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(`${endpoint}/${businessId}/${userId}`);
+	return response.data;
 };
