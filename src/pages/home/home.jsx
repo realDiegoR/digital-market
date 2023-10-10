@@ -20,10 +20,10 @@ export const Home = () => {
 				<PageTitle>Hogar</PageTitle>
 			</div>
 			<div className="grid max-w-full gap-14 sm:grid-flow-row md:grid-cols-2">
-				<LinkCard href="#" title="Cargar Venta" icon={<IconArrowLeft />}>
+				<LinkCard href="/cargar_venta" title="Cargar Venta" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
-				<LinkCard href="#" title="Cargar compra" icon={<IconArrowLeft />}>
+				<LinkCard href="/cargar_compra" title="Cargar compra" icon={<IconArrowLeft />}>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit.
 				</LinkCard>
 				<LinkCard href="/ventas" title="Lista de ventas" icon={<IconArrowLeft />}>
