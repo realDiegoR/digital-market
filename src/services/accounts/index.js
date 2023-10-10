@@ -2,7 +2,7 @@ import { api } from '../api';
 
 // Import the axios instance created in '../api'.
 
-const endpoint = '/accounts'; // Define the endpoint for Accounts.
+const endpoint = '/cuentas'; // Define the endpoint for Accounts.
 
 /**
  * Get an array of accounts by negocioId.

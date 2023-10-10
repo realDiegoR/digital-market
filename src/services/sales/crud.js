@@ -30,7 +30,7 @@ export const getSale = async (businessId, saleId) => {
 };
 
 /**
- * @param {{negocioId: number, userId: number, clienteId: number}} sale Entities related to the sale
+ * @param {{negocioId: number, usuarioId: number, clienteId: number}} sale Entities related to the sale
  */
 
 export const createSale = async (sale) => {
