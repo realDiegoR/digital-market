@@ -1,11 +1,11 @@
 import { Helmet } from 'react-helmet';
 import { Form, FormInput } from '@/components';
 import { Button, PageTitle, Wrapper } from '@/common/';
-import { api } from '@/services/api';
+import { updateProfile } from '@/services/profiles';
 
 export const EditClient = () => {
 	const handleSubmit = (data) => {
-		api.patch('/perfiles', data);
+		updateProfile(data);
 	};
 	return (
 		<>
