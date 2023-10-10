@@ -20,9 +20,6 @@ export const EditClient = () => {
 					<FormInput label="Telefono" name="telefono" />
 					<FormInput label="Correo" name="correo" />
 					<FormInput label="Direccion" name="direccion" />
-					<FormInput label="Costo" name="costo" type="number" />
-					<FormInput label="Tipo" name="tipo" />
-					<FormInput label="Saldo" name="saldo" type="number" />
 					<div className="flex justify-around">
 						<Button variant="danger" type="submit">
 							Cancelar
