@@ -1,5 +1,5 @@
 import { IconPlus, IconUser } from '@tabler/icons-react';
-import { Form, FormInput } from '@/components';
+import { BillPDF, Form, FormInput, PDFDownload } from '@/components';
 import { Button, LinkCard, PageTitle, Wrapper } from '@/common/';
 
 export const RootPage = () => {
@@ -17,6 +17,23 @@ export const RootPage = () => {
 				<Button variant="secondary" onClick={() => alert(2)} width="max-content">
 					<IconUser /> Agregar producto
 				</Button>
+				<PDFDownload
+					filename="xd.pdf"
+					doc={
+						<BillPDF
+							cart={[]}
+							clientName="diego"
+							clientAddress="av. goajira"
+							date="hoy"
+							imgUrl="/digital-market-png.png"
+							paymentMethod="cash"
+							total="0"
+							subtotal="0"
+							cvu="none"
+							alias="none"
+						/>
+					}
+				/>
 				<Form
 					action="/roles/"
 					defaultValues={{ codigo: '', nombre: '', email: 'pepe@a.com' }}
