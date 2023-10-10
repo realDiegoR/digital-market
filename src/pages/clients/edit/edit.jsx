@@ -6,7 +6,6 @@ import { api } from '@/services/api';
 export const EditClient = () => {
 	const handleSubmit = (data) => {
 		api.patch('/perfiles', data);
-		console.log(data);
 	};
 	return (
 		<>

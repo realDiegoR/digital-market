@@ -6,15 +6,14 @@ import { postProfile } from '@/services/profiles';
 export const AddClient = () => {
 	const handleSubmit = (data) => {
 		postProfile(data);
-		// console.log(data);
 	};
 
 	return (
 		<>
 			<Helmet>
-				<title> Agregar nuevo cliente</title>
+				<title>Agregar nuevo cliente</title>
 			</Helmet>
-			<PageTitle> Agregar nuevo cliente</PageTitle>
+			<PageTitle>Agregar nuevo cliente</PageTitle>
 			<Wrapper>
 				<Form onSubmit={handleSubmit}>
 					<FormInput label="Nombre" name="nombre" />

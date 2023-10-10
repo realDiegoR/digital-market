@@ -6,8 +6,6 @@ import { useFetch } from '@/hooks';
 import { getClient } from '@/services/clients';
 
 export const SearchClient = ({ fetchProfiles, profile }) => {
-	console.log(profile);
-
 	const getProfiles = () => {
 		if (profile) {
 			const fakeBusinessId = 1;
@@ -21,12 +19,10 @@ export const SearchClient = ({ fetchProfiles, profile }) => {
 		queryFunction: getProfiles,
 		select: (profiles) => profiles.map((profileItem) => profileItem.perfil),
 	});
-
 	const handleSearch = (data) => {
 		getClient(data.perfil);
 		console.log(data);
 	};
-
 	return (
 		<>
 			<Helmet>
