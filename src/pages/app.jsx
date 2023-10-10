@@ -19,7 +19,7 @@ import { Home } from './home/';
 import { Login } from './login/login';
 import { PayProviderPage } from './pay/PayProviderPage';
 import { ChargeClientPage } from './payment/ChargeClientPage';
-import { EditProvider, Provider, SearchProvider } from './provider';
+import { EditProvider, Provideer, SearchProvider } from './provider';
 import { AddProveedor } from './provider/add';
 import { PurchasesPage } from './purchases/';
 import { RootPage } from './root/';
@@ -56,7 +56,7 @@ const router = createBrowserRouter(
 				<Route path="/cuentas/agregar" element={<AddAccount />} />
 				<Route path="/cuentas/buscar" element={<SearchAccount />} />
 				<Route path="/cuentas/editar" element={<EditAccount />} />
-				<Route path="/provedor" element={<Provider />} />
+				<Route path="/provedor" element={<Provideer />} />
 				<Route path="/provedor/agregar" element={<AddProveedor />} />
 				<Route path="/provedor/buscar" element={<SearchProvider />} />
 				<Route path="/provedor/editar" element={<EditProvider />} />

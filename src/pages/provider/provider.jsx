@@ -23,7 +23,7 @@ const links = [
 	},
 ];
 
-export const Provider = () => {
+export const Provideer = () => {
 	return (
 		<>
 			<Helmet>
