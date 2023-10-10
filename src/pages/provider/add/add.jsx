@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet';
 import { Form, FormInput } from '@/components';
 import { Button, PageTitle, Wrapper } from '@/common/';
 
-export const AddProveedor = () => {
+export const AddNewProveedor = () => {
 	return (
 		<>
 			<Helmet>
