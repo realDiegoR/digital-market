@@ -1,25 +1,34 @@
 import PropTypes from 'prop-types';
 import { Autocomplete, Form, FormInput } from '@/components';
 import { Button } from '@/common';
-import { useChargeStore } from '@/store/';
-import { useFetch } from '@/hooks';
+import { useBoundStore } from '@/stores';
+import { useSale } from '@/hooks';
 
-export const InitialDataPage = ({ fetchProfiles, profile }) => {
-	const { incrementStep, setSubject, subject } = useChargeStore();
+const subjectType = {
+	sale: {
+		profile: 'cliente',
+	},
+	purchase: {
+		profile: 'proveedor',
+	},
+};
 
-	const getProfiles = () => {
-		const fakeBusinessId = 1;
-		return fetchProfiles(fakeBusinessId);
-	};
+export const InitialDataPage = ({ type, data, incrementStep }) => {
+	const { setSubject, subject, addProduct } = useBoundStore();
+	const { createSale, getActiveSale } = useSale();
 
-	const { data } = useFetch({
-		cacheId: profile.toLowerCase(),
-		queryFunction: getProfiles,
-		select: (profiles) => profiles.map((profile) => profile.perfil),
-	});
+	const pageType = subjectType[type];
 
-	const handleSubmit = (data) => {
+	const handleSubmit = async (data) => {
 		setSubject(data.perfil);
+		const activeSale = await getActiveSale(data.perfil);
+		if (activeSale) {
+			activeSale.items.forEach((product) => {
+				addProduct(product);
+			});
+		} else {
+			await createSale.mutateAsync(data.perfil.id);
+		}
 		incrementStep();
 	};
 
@@ -37,10 +46,10 @@ export const InitialDataPage = ({ fetchProfiles, profile }) => {
 				<FormInput readOnly label="Fecha" name="fecha" />
 				<FormInput readOnly label="Vendedor/a" name="vendedor" />
 				<Autocomplete
-					label={profile}
+					label={pageType.profile}
 					name="perfil"
-					placeholder={`Nombre del ${profile}`}
-					data={data ?? []}
+					placeholder={`Nombre del ${pageType.profile}`}
+					data={data}
 					filterFn={(query) => (profile) =>
 						`${profile.nombre} ${profile.apellido} - ${profile.email}`
 							.toLowerCase()
@@ -59,6 +68,7 @@ export const InitialDataPage = ({ fetchProfiles, profile }) => {
 };
 
 InitialDataPage.propTypes = {
-	fetchProfiles: PropTypes.func.isRequired,
-	profile: PropTypes.string.isRequired,
+	type: PropTypes.oneOf(['sale', 'purchase']).isRequired,
+	data: PropTypes.array.isRequired,
+	incrementStep: PropTypes.func.isRequired,
 };

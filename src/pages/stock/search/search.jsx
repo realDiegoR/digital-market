@@ -11,7 +11,7 @@ export const SearchStockPage = () => {
 		return res;
 	};
 
-	const { data, status } = useFetch({ cacheId: 'stock', queryFunction: getBusinessProducts });
+	const { data, status } = useFetch({ cacheId: 'products', queryFunction: getBusinessProducts });
 
 	if (status === 'loading') {
 		return <LoadingSpinner />;

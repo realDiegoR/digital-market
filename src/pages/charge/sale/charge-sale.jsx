@@ -1,16 +1,32 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { PageTitle, Wrapper } from '@/common';
-import { useChargeStore } from '@/store';
+import { useFetch } from '@/hooks';
 import { getClients } from '@/services/clients';
+import { getAllProducts } from '@/services/products';
 import { InitialDataPage, LoadProductsPage } from '../components';
 
 export const ChargeSalePage = () => {
-	const { currentStep, reset } = useChargeStore();
+	const [currentStep, setCurrentStep] = useState(1);
+	const fakeBusinessId = 1;
+	const { data: clients } = useFetch({
+		cacheId: 'clients',
+		queryFunction: () => getClients(fakeBusinessId),
+		select: (profiles) => profiles.map((profile) => profile.perfil),
+	});
 
-	useEffect(() => {
-		return () => reset();
-	}, [reset]);
+	const { data: products } = useFetch({
+		cacheId: 'products',
+		queryFunction: () => getAllProducts(fakeBusinessId),
+	});
+
+	const incrementStep = () => {
+		setCurrentStep((prev) => prev + 1);
+	};
+
+	const decrementStep = () => {
+		setCurrentStep((prev) => prev - 1);
+	};
 
 	return (
 		<>
@@ -19,8 +35,12 @@ export const ChargeSalePage = () => {
 			</Helmet>
 			<PageTitle>Cargar Venta</PageTitle>
 			<Wrapper>
-				{currentStep === 1 && <InitialDataPage fetchProfiles={getClients} profile="Cliente" />}
-				{currentStep === 2 && <LoadProductsPage />}
+				{currentStep === 1 && (
+					<InitialDataPage type="sale" data={clients} incrementStep={incrementStep} />
+				)}
+				{currentStep === 2 && (
+					<LoadProductsPage products={products} decrementStep={decrementStep} />
+				)}
 			</Wrapper>
 		</>
 	);

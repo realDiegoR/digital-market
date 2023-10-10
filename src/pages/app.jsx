@@ -10,6 +10,7 @@ import {
 import { MainLayout, ReturnableMainLayout } from '@/layouts/';
 import { Account, AddAccount, EditAccount, SearchAccount } from './accounts';
 import { ChargePurchasePage, ChargeSalePage } from './charge';
+import { CheckoutPage } from './checkout';
 import { EditClient } from './clients';
 import { AddClient } from './clients/add';
 import { Client } from './clients/client';
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
 			<Route index element={<RootPage />} />
 			<Route path="/home" element={<Home />} />
 			<Route path="/login" element={<Login />} />
+			<Route path="/pasarela_de_pagos" element={<CheckoutPage />} />
 			<Route element={<ReturnableMainLayout />}>
 				<Route path="/cargar_venta" element={<ChargeSalePage />} />
 				<Route path="/cargar_compra" element={<ChargePurchasePage />} />
