@@ -1,27 +1,26 @@
-import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import { Autocomplete, BusinessInformation, Form } from '@/components';
-import { PageTitle, Wrapper } from '@/common';
+import { BusinessInformation, Form, FormInput } from '@/components';
+import { LoadingSpinner, PageTitle, Wrapper } from '@/common';
 import { useFetch } from '@/hooks';
-import { getClient } from '@/services/clients';
+import { getClient, getClients } from '@/services/clients';
 
-export const SearchClient = ({ fetchProfiles, profile }) => {
+export const SearchClient = () => {
+	const profile = 'cliente';
 	const getProfiles = () => {
-		if (profile) {
-			const fakeBusinessId = 1;
-			return fetchProfiles(fakeBusinessId);
-		} else {
-			return Promise.resolve([]);
-		}
+		const fakeBusinessId = 1;
+		return getClients(fakeBusinessId);
 	};
-	const { data } = useFetch({
-		cacheId: profile ? profile.toLowerCase() : '',
+
+	const { data, status } = useFetch({
+		cacheId: profile.toLowerCase(),
 		queryFunction: getProfiles,
 		select: (profiles) => profiles.map((profileItem) => profileItem.perfil),
 	});
-	const handleSearch = (data) => {
+
+	const handleSearch = () => {
 		getClient(data.perfil);
 		console.log(data);
+		// data.filter((item) => item.name.toLowerCase().includes(data.target.value.toLowerCase()));
 	};
 	return (
 		<>
@@ -30,30 +29,11 @@ export const SearchClient = ({ fetchProfiles, profile }) => {
 			</Helmet>
 			<PageTitle>Buscar cliente</PageTitle>
 			<Wrapper className="space-y-14">
-				<Form onSubmit={handleSearch}>
-					{/* <FormInput label="Buscar" name="productId" /> */}
-					<Autocomplete
-						label={profile}
-						name="perfil"
-						placeholder={`Nombre de ${profile}`}
-						data={data ?? []}
-						filterFn={(query) => (profile) =>
-							`${profile.nombre} ${profile.apellido} - ${profile.email}`
-								.toLowerCase()
-								.includes(query.toLowerCase())
-						}
-						displayValueFn={(profile) =>
-							profile ? `${profile.nombre} ${profile.apellido} - ${profile.email}` : ''
-						}
-					/>
+				<Form onSubmit={handleSearch} defaultValues={{ perfil: '' }}>
+					<FormInput label="Buscar" name="perfil" />
 				</Form>
-				{data && data.length > 0 ? <BusinessInformation data={data} /> : null}
+				{status === 'loading' ? <LoadingSpinner /> : <BusinessInformation data={data} />}
 			</Wrapper>
 		</>
 	);
-};
-
-SearchClient.propTypes = {
-	fetchProfiles: PropTypes.func.isRequired,
-	profile: PropTypes.string.isRequired,
 };

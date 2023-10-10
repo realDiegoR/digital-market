@@ -1,13 +1,16 @@
 import { Helmet } from 'react-helmet';
 import { Form, FormInput } from '@/components';
-import { Button, PageTitle, Wrapper } from '@/common/';
+import { Button, PageTitle, Wrapper } from '@/common';
+import { createClient } from '@/services/clients';
 import { postProfile } from '@/services/profiles';
 
 export const AddClient = () => {
-	const handleSubmit = (data) => {
-		postProfile(data);
-	};
+	const fakeBusinessId = 1;
 
+	const handleSubmit = async (data) => {
+		const response = await postProfile(data);
+		createClient({ negocioId: fakeBusinessId, perfilId: response.id });
+	};
 	return (
 		<>
 			<Helmet>
