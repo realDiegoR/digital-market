@@ -9,19 +9,35 @@ export const Button = ({
 	onClick,
 	width = 'max-content',
 	type = 'button',
+	disabled = false,
 }) => {
 	const buttonStyles = variantStyles[variant] + ' ' + widthStyles[width];
 
 	if (href) {
+		const hrefUrl = typeof href === 'string' ? href : href.pathname;
+		const hrefState = typeof href === 'string' ? {} : href.state;
 		return (
-			<Link to={href} onClick={onClick} className={`${buttonStyles}`} relative="path">
+			<Link
+				to={hrefUrl}
+				state={hrefState}
+				onClick={onClick}
+				className={`${buttonStyles} ${
+					disabled ? 'pointer-events-none opacity-50' : 'pointer-events-auto'
+				}`}
+				relative="path"
+			>
 				{children}
 			</Link>
 		);
 	}
 
 	return (
-		<button onClick={onClick} className={`${buttonStyles}`} type={type}>
+		<button
+			onClick={onClick}
+			disabled={disabled}
+			className={`${buttonStyles} ${disabled ? 'opacity-50' : 'opacity-100'}`}
+			type={type}
+		>
 			{children}
 		</button>
 	);
@@ -32,6 +48,7 @@ Button.propTypes = {
 	width: PropTypes.oneOf(Object.keys(widthStyles)),
 	children: PropTypes.node.isRequired,
 	href: PropTypes.string,
+	disabled: PropTypes.bool,
 	onClick: PropTypes.func,
 	type: PropTypes.oneOf(['button', 'reset', 'submit']),
 };

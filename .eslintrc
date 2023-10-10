@@ -26,7 +26,7 @@
 					["@/components", "./src/components"],
 					["@/pages", "./src/pages"],
 					["@/layouts", "./src/layouts"],
-					["@/store", "./src/store"],
+					["@/stores", "./src/stores"],
 					["@/common", "./src/common"],
 					["@/hooks", "./src/hooks"],
 					["@/assets", "./src/assets"],

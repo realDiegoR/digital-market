@@ -33,7 +33,7 @@ export const Autocomplete = ({
 	const inputStyles = variantStyles[style] || variantStyles['box'];
 
 	return (
-		<label className="flex flex-col gap-1.5">
+		<label className="flex flex-col gap-1.5 capitalize">
 			<span className="text-sm font-bold">{label}</span>
 			<Combobox
 				className="relative w-full"
@@ -55,7 +55,7 @@ export const Autocomplete = ({
 						aria-hidden="true"
 					/>
 				</Combobox.Button>
-				<Combobox.Options className="absolute w-full divide-y-2 overflow-clip rounded bg-white py-0.5 shadow-md">
+				<Combobox.Options className="absolute max-h-72 w-full divide-y-2 overflow-clip overflow-y-auto rounded bg-white py-0.5 shadow-md">
 					{data.length === 0 && (
 						<div className="relative cursor-default select-none px-4 py-2 text-gray-700">
 							No hay información en la base de datos.
