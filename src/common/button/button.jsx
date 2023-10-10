@@ -47,7 +47,7 @@ Button.propTypes = {
 	variant: PropTypes.oneOf(Object.keys(variantStyles)),
 	width: PropTypes.oneOf(Object.keys(widthStyles)),
 	children: PropTypes.node.isRequired,
-	href: PropTypes.string,
+	href: PropTypes.oneOf([PropTypes.string, PropTypes.object]),
 	disabled: PropTypes.bool,
 	onClick: PropTypes.func,
 	type: PropTypes.oneOf(['button', 'reset', 'submit']),

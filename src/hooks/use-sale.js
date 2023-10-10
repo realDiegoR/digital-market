@@ -1,7 +1,9 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useBoundStore } from '@/stores';
 import * as SaleServices from '@/services/sales';
 
 export function useSale(client) {
+	const { updateSale, addPaymentToSaleUI } = useBoundStore();
 	const queryClient = useQueryClient();
 	const fakeBusinessId = 1;
 
@@ -22,6 +24,7 @@ export function useSale(client) {
 				queryKey: ['sales', fakeBusinessId, activeSale.id],
 				queryFn: () => SaleServices.getSale(fakeBusinessId, activeSale.id),
 			});
+			updateSale(sale);
 			return sale;
 		} catch (err) {
 			console.error(err);
@@ -33,8 +36,8 @@ export function useSale(client) {
 		mutationFn: (clientId) =>
 			SaleServices.createSale({ negocioId: fakeBusinessId, usuarioId: 1, clienteId: clientId }),
 		onSuccess: ({ data }) => {
-			console.log(data);
 			queryClient.setQueryData(['sales', fakeBusinessId, data.id], data);
+			updateSale(data);
 		},
 	});
 
@@ -53,7 +56,16 @@ export function useSale(client) {
 	});
 
 	const addPayment = useMutation({
-		mutationFn: (newPayment) => SaleServices.addChargeToSale(newPayment),
+		mutationFn: (newPayment) =>
+			SaleServices.addChargeToSale({
+				negocioId: fakeBusinessId,
+				ventaId: clientSale.id,
+				...newPayment,
+			}),
+		onSuccess: ({ data }) => {
+			queryClient.setQueryData(['sales', fakeBusinessId, data.id], data);
+			addPaymentToSaleUI(data);
+		},
 	});
 
 	const removePayment = useMutation({

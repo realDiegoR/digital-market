@@ -43,7 +43,8 @@
 		"import/no-empty-named-blocks": "error",
 		"import/no-commonjs": "error",
 		"import/first": "error",
-		"react/prop-types": "error"
+		"react/prop-types": "error",
+		"no-console": "warn"
 	},
 	"overrides": [
 		{

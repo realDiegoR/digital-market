@@ -19,7 +19,6 @@ export const LoadProductsPage = ({ decrementStep }) => {
 
 	const selectProductRow = (row) => {
 		const checkedProducts = products.filter((product) => product.nombre === row.producto);
-		console.log(products, checkedProducts);
 		setSelectedProducts(checkedProducts);
 	};
 

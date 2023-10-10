@@ -12,7 +12,7 @@ export const ChargeSalePage = () => {
 	const { data: clients } = useFetch({
 		cacheId: 'clients',
 		queryFunction: () => getClients(fakeBusinessId),
-		select: (profiles) => profiles.map((profile) => profile.perfil),
+		select: (profiles) => profiles.map((profile) => ({ ...profile.perfil, saldo: profile.saldo })),
 	});
 
 	const { data: products } = useFetch({

@@ -27,7 +27,6 @@ export const FormInput = ({
 			<input
 				type={type}
 				className={inputStyles}
-				onChange={() => console.log(formState)}
 				placeholder={placeholder}
 				readOnly={readOnly}
 				{...register(name, { required, maxLength, pattern, minLength, max, min })}

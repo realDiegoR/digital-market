@@ -4,7 +4,7 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Autocomplete, Form, FormInput } from '@/components';
 import { Button, PageTitle, Table, Wrapper } from '@/common/';
 import { useBoundStore } from '@/stores';
-import { useFetch } from '@/hooks';
+import { useFetch, useSale } from '@/hooks';
 import { getAccounts } from '@/services/accounts';
 import { Checkbox } from './components';
 
@@ -12,8 +12,8 @@ export const CheckoutPage = () => {
 	const [receiptOptions, setReceiptOptions] = useState({ print: false, generatePdf: false });
 	const { state } = useLocation();
 	const navigate = useNavigate();
-	const { products, subject } = useBoundStore();
-	// const {} = useSale(subject);
+	const { products, subject, sale } = useBoundStore();
+	const { addPayment } = useSale(subject);
 
 	const getAllAccounts = () => {
 		const fakeBusinessId = 1;
@@ -31,7 +31,10 @@ export const CheckoutPage = () => {
 	};
 
 	const handleSubmit = (data) => {
-		console.log(data);
+		addPayment.mutateAsync({
+			cuentaId: data.cuenta.id,
+			monto: Number(data.monto),
+		});
 	};
 
 	const totalToPay = products.reduce((acc, product) => acc + product.cantidad * product.valor, 0);
@@ -57,7 +60,7 @@ export const CheckoutPage = () => {
 					<p>
 						Cliente: <span className="capitalize">{`${subject.nombre} ${subject.apellido}`}</span>
 					</p>
-					<p>Saldo: $ {subject.saldo}</p>
+					<p>Saldo: ${subject.saldo}</p>
 					<div className="space-y-3">
 						<Checkbox
 							id="print-checkbox"
@@ -102,7 +105,7 @@ export const CheckoutPage = () => {
 					<h2 className="my-4 text-lg">Resumen de facturación</h2>
 					<p>Total del remito: ${totalToPay}</p>
 					<p>Subtotal: $00</p>
-					<Table list={[]} />
+					<Table list={sale?.cobros} />
 				</section>
 				<div className="flex justify-between pt-6">
 					<Button variant="danger" onClick={() => navigate(-1, { replace: true })}>
