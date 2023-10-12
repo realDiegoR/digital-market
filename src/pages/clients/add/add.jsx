@@ -18,7 +18,10 @@ export const AddClient = () => {
 			</Helmet>
 			<PageTitle>Agregar nuevo cliente</PageTitle>
 			<Wrapper>
-				<Form onSubmit={handleSubmit}>
+				<Form
+					onSubmit={handleSubmit}
+					defaultValues={{ nombre: '', celular: '', email: '', direccion: '' }}
+				>
 					<FormInput label="Nombre" name="nombre" />
 					<FormInput label="Apellido" name="apellido" />
 					<FormInput label="Celular" name="celular" type="number" />

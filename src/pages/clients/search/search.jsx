@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { BusinessInformation, Form, FormInput } from '@/components';
+import { BusinessInformation } from '@/components';
+import { variantStyles } from '@/components/form/variants';
 import { LoadingSpinner, PageTitle, Wrapper } from '@/common';
 import { useFetch } from '@/hooks';
-import { getClient, getClients } from '@/services/clients';
+import { getClients } from '@/services/clients';
 
 export const SearchClient = () => {
 	const profile = 'cliente';
@@ -17,11 +19,27 @@ export const SearchClient = () => {
 		select: (profiles) => profiles.map((profileItem) => profileItem.perfil),
 	});
 
-	const handleSearch = () => {
-		getClient(data.perfil);
-		console.log(data);
-		// data.filter((item) => item.name.toLowerCase().includes(data.target.value.toLowerCase()));
+	const [filtro, setFiltro] = useState('');
+	const [filteredData, setFilteredData] = useState(data);
+
+	const handleFiltroChange = (e) => {
+		const newValue = e.target.value;
+		setFiltro(newValue);
+		const filteredData = data.filter((profileItem) =>
+			profileItem.nombre.toLowerCase().includes(filtro.toLowerCase())
+		);
+		return filteredData;
 	};
+
+	useEffect(() => {
+		if (data) {
+			const filteredData = data.filter((profileItem) =>
+				profileItem.nombre.toLowerCase().includes(filtro.toLowerCase())
+			);
+			setFilteredData(filteredData);
+		}
+	}, [filtro, data]);
+
 	return (
 		<>
 			<Helmet>
@@ -29,10 +47,13 @@ export const SearchClient = () => {
 			</Helmet>
 			<PageTitle>Buscar cliente</PageTitle>
 			<Wrapper className="space-y-14">
-				<Form onSubmit={handleSearch} defaultValues={{ perfil: '' }}>
-					<FormInput label="Buscar" name="perfil" />
-				</Form>
-				{status === 'loading' ? <LoadingSpinner /> : <BusinessInformation data={data} />}
+				<input
+					className={variantStyles.box}
+					type="text"
+					onChange={handleFiltroChange}
+					value={filtro}
+				/>
+				{status === 'loading' ? <LoadingSpinner /> : <BusinessInformation data={filteredData} />}
 			</Wrapper>
 		</>
 	);
