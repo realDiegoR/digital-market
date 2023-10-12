@@ -20,7 +20,7 @@ export const AddNewProveedor = () => {
 			<Wrapper>
 				<Form
 					onSubmit={handleSubmit}
-					defaultValues={{ nombre: '', celular: '', email: '', direccion: '' }}
+					defaultValues={{ nombre: '', apellido: '', celular: '', email: '', direccion: '' }}
 				>
 					<FormInput label="Nombre" name="nombre" />
 					<FormInput label="Apellido" name="apellido" />
@@ -28,7 +28,7 @@ export const AddNewProveedor = () => {
 					<FormInput label="Email" name="email" />
 					<FormInput label="Dirección" name="direccion" />
 					<div className="mt-6 flex justify-end ">
-						<Button type="submit">Agregar cliente</Button>
+						<Button type="submit">Agregar proveedor</Button>
 					</div>
 				</Form>
 			</Wrapper>
