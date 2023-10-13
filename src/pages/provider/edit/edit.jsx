@@ -1,21 +1,31 @@
 import { Helmet } from 'react-helmet';
 import { Form, FormInput } from '@/components';
 import { Button, PageTitle, Wrapper } from '@/common/';
-import { getProfile, updateProfile } from '@/services/profiles';
+import { useFetch } from '@/hooks';
+import { getClients } from '@/services/clients';
+import { updateProfile } from '@/services/profiles';
 
 export const EditProvider = () => {
-	const handleSubmit = async (data) => {
-		const nombre = data.nombre;
-		const profiles = await getProfile(nombre);
-		updateProfile({
-			profiles,
-			nombre: 'Nuevo Nombre',
-			apellido: 'Nuevo Apellido',
-			celular: 'Nuevo Celular',
-			direccion: 'Nueva Dirección',
-			email: 'nuevo@email.com',
-		});
-		console.log(data);
+	const profile = 'cliente';
+	const getUpClient = () => {
+		const fakeBusinessId = 1;
+		return getClients(fakeBusinessId);
+	};
+	const { data } = useFetch({
+		cacheId: profile.toLowerCase(),
+		queryFunction: getUpClient,
+		select: (profiles) => profiles.map((profileItem) => profileItem.perfil),
+	});
+
+	const handleSubmit = async (profileData) => {
+		const upClient = data.find((profile) => profile.email === profileData.email);
+		const updateProfileData = {
+			nombre: profileData.nombre,
+			apellido: profileData.apellido,
+			celular: profileData.celular,
+			direccion: profileData.direccion,
+		};
+		await updateProfile(upClient.id, updateProfileData);
 	};
 	return (
 		<>

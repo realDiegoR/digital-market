@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { BusinessInformation } from '@/components';
 import { variantStyles } from '@/components/form/variants';
@@ -25,20 +25,12 @@ export const SearchClient = () => {
 	const handleFiltroChange = (e) => {
 		const newValue = e.target.value;
 		setFiltro(newValue);
+
 		const filteredData = data.filter((profileItem) =>
 			profileItem.nombre.toLowerCase().includes(filtro.toLowerCase())
 		);
-		return filteredData;
+		setFilteredData(newValue ? filteredData : data);
 	};
-
-	useEffect(() => {
-		if (data) {
-			const filteredData = data.filter((profileItem) =>
-				profileItem.nombre.toLowerCase().includes(filtro.toLowerCase())
-			);
-			setFilteredData(filteredData);
-		}
-	}, [filtro, data]);
 
 	return (
 		<>
@@ -50,10 +42,15 @@ export const SearchClient = () => {
 				<input
 					className={variantStyles.box}
 					type="text"
+					placeholder="nombre del cliente"
 					onChange={handleFiltroChange}
 					value={filtro}
 				/>
-				{status === 'loading' ? <LoadingSpinner /> : <BusinessInformation data={filteredData} />}
+				{status === 'loading' ? (
+					<LoadingSpinner />
+				) : (
+					<BusinessInformation data={filteredData || data} />
+				)}
 			</Wrapper>
 		</>
 	);

@@ -52,10 +52,10 @@ const router = createBrowserRouter(
 				<Route path="/cuentas/agregar" element={<AddAccount />} />
 				<Route path="/cuentas/buscar" element={<SearchAccount />} />
 				<Route path="/cuentas/editar" element={<EditAccount />} />
-				<Route path="/provedor" element={<Provideer />} />
-				<Route path="/provedor/agregar" element={<AddNewProveedor />} />
-				<Route path="/provedor/buscar" element={<SearchProvider />} />
-				<Route path="/provedor/editar" element={<EditProvider />} />
+				<Route path="/proveedor" element={<Provideer />} />
+				<Route path="/proveedor/agregar" element={<AddNewProveedor />} />
+				<Route path="/proveedor/buscar" element={<SearchProvider />} />
+				<Route path="/proveedor/editar" element={<EditProvider />} />
 			</Route>
 		</Route>
 	)

@@ -9,7 +9,7 @@ export const AddClient = () => {
 
 	const handleSubmit = async (data) => {
 		const response = await postProfile(data);
-		createClient({ negocioId: fakeBusinessId, perfilId: response.id });
+		createClient({ negocioId: fakeBusinessId, perfilId: response.data.id });
 	};
 	return (
 		<>
@@ -20,7 +20,7 @@ export const AddClient = () => {
 			<Wrapper>
 				<Form
 					onSubmit={handleSubmit}
-					defaultValues={{ nombre: '', celular: '', email: '', direccion: '' }}
+					defaultValues={{ nombre: '', apellido: '', celular: '', email: '', direccion: '' }}
 				>
 					<FormInput label="Nombre" name="nombre" />
 					<FormInput label="Apellido" name="apellido" />

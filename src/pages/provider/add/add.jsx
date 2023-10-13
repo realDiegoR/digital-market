@@ -9,7 +9,7 @@ export const AddNewProveedor = () => {
 
 	const handleSubmit = async (data) => {
 		const response = await postProfile(data);
-		createProvider({ negocioId: fakeBusinessId, perfilId: response.id });
+		createProvider({ negocioId: fakeBusinessId, perfilId: response.data.id });
 	};
 	return (
 		<>
