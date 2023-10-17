@@ -4,13 +4,14 @@ import { Button, PageTitle, Wrapper } from '@/common/';
 import { postProfile } from '@/services/profiles';
 import { createProvider } from '@/services/providers';
 
-export const AddNewProveedor = () => {
+export const AddNewProvider = () => {
 	const fakeBusinessId = 1;
 
 	const handleSubmit = async (data) => {
 		const response = await postProfile(data);
 		createProvider({ negocioId: fakeBusinessId, perfilId: response.data.id });
 	};
+
 	return (
 		<>
 			<Helmet>

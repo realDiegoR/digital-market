@@ -6,29 +6,30 @@ import { getClients } from '@/services/clients';
 import { updateProfile } from '@/services/profiles';
 
 export const EditClient = () => {
-	const profile = 'cliente';
-	const getUpClient = () => {
+	const getBusinessClients = () => {
 		const fakeBusinessId = 1;
 		return getClients(fakeBusinessId);
 	};
 	const { data } = useFetch({
-		cacheId: profile.toLowerCase(),
-		queryFunction: getUpClient,
+		cacheId: 'clientes',
+		queryFunction: getBusinessClients,
 		select: (profiles) => profiles.map((profileItem) => profileItem.perfil),
 	});
 
-	const handleSubmit = async (profileData) => {
-		const upClient = data.find((profile) => profile.email === profileData.email);
+	const handleSubmit = (profileData) => {
+		const matchedClient = data.find((profile) => profile.email === profileData.email);
+
 		if (Object.keys(profileData).length === 0) {
 			return;
 		}
+
 		const updateProfileData = {
-			nombre: profileData.nombre || upClient.nombre,
-			apellido: profileData.apellido || upClient.apellido,
-			celular: profileData.celular || upClient.celular,
-			direccion: profileData.direccion || upClient.direccion,
+			nombre: profileData.nombre || matchedClient.nombre,
+			apellido: profileData.apellido || matchedClient.apellido,
+			celular: profileData.celular || matchedClient.celular,
+			direccion: profileData.direccion || matchedClient.direccion,
 		};
-		await updateProfile(upClient.id, updateProfileData);
+		updateProfile(matchedClient.id, updateProfileData);
 	};
 
 	return (

@@ -23,11 +23,11 @@ const links = [
 	},
 ];
 
-export const Provideer = () => {
+export const Provider = () => {
 	return (
 		<>
 			<Helmet>
-				<title>proveedores</title>
+				<title>Proveedores</title>
 			</Helmet>
 			<PageTitle>Proveedores</PageTitle>
 			<Wrapper className="flex flex-col flex-wrap gap-6 sm:flex-row">

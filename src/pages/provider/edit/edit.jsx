@@ -2,35 +2,36 @@ import { Helmet } from 'react-helmet';
 import { Form, FormInput } from '@/components';
 import { Button, PageTitle, Wrapper } from '@/common/';
 import { useFetch } from '@/hooks';
-import { getClients } from '@/services/clients';
 import { updateProfile } from '@/services/profiles';
+import { getProviders } from '@/services/providers';
 
 export const EditProvider = () => {
-	const profile = 'cliente';
-	const getUpClient = () => {
+	const getBusinessProviders = () => {
 		const fakeBusinessId = 1;
-		return getClients(fakeBusinessId);
+		return getProviders(fakeBusinessId);
 	};
+
 	const { data } = useFetch({
-		cacheId: profile.toLowerCase(),
-		queryFunction: getUpClient,
+		cacheId: 'proveedores',
+		queryFunction: getBusinessProviders,
 		select: (profiles) => profiles.map((profileItem) => profileItem.perfil),
 	});
 
-	const handleSubmit = async (profileData) => {
-		const upClient = data.find((profile) => profile.email === profileData.email);
+	const handleSubmit = (profileData) => {
+		const matchedProvider = data.find((profile) => profile.email === profileData.email);
 
 		if (Object.keys(profileData).length === 0) {
 			return;
 		}
 		const updateProfileData = {
-			nombre: profileData.nombre || upClient.nombre,
-			apellido: profileData.apellido || upClient.apellido,
-			celular: profileData.celular || upClient.celular,
-			direccion: profileData.direccion || upClient.direccion,
+			nombre: profileData.nombre || matchedProvider.nombre,
+			apellido: profileData.apellido || matchedProvider.apellido,
+			celular: profileData.celular || matchedProvider.celular,
+			direccion: profileData.direccion || matchedProvider.direccion,
 		};
-		await updateProfile(upClient.id, updateProfileData);
+		updateProfile(matchedProvider.id, updateProfileData);
 	};
+
 	return (
 		<>
 			<Helmet>

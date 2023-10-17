@@ -7,27 +7,29 @@ import { useFetch } from '@/hooks';
 import { getClients } from '@/services/clients';
 
 export const SearchProvider = () => {
-	const profile = 'proveedor';
-	const getProfiles = () => {
+	const getBusinessProviders = () => {
 		const fakeBusinessId = 1;
 		return getClients(fakeBusinessId);
 	};
+
 	const { data, status } = useFetch({
-		cacheId: profile.toLowerCase(),
-		queryFunction: getProfiles,
+		cacheId: 'proveedores',
+		queryFunction: getBusinessProviders,
 		select: (profiles) => profiles.map((profileItem) => profileItem.perfil),
 	});
 
-	const [filtro, setFiltro] = useState('');
-	const [filteredData, setFilteredData] = useState(data);
+	const [filter, setFilter] = useState('');
+	const [filteredProviders, setFilteredProviders] = useState(data);
 
 	const handleFiltroChange = (e) => {
 		const newValue = e.target.value;
-		setFiltro(newValue);
-		const filteredData = data.filter((profileItem) =>
-			profileItem.nombre.toLowerCase().includes(filtro.toLowerCase())
+		setFilter(newValue);
+
+		const filteredProviders = data.filter((profileItem) =>
+			profileItem.nombre.toLowerCase().includes(filter.toLowerCase())
 		);
-		setFilteredData(newValue ? filteredData : data);
+
+		setFilteredProviders(newValue ? filteredProviders : data);
 	};
 
 	return (
@@ -42,12 +44,12 @@ export const SearchProvider = () => {
 					type="text"
 					placeholder="nombre del proveedor"
 					onChange={handleFiltroChange}
-					value={filtro}
+					value={filter}
 				/>
 				{status === 'loading' ? (
 					<LoadingSpinner />
 				) : (
-					<BusinessInformation data={filteredData || data} />
+					<BusinessInformation data={filteredProviders || data} />
 				)}
 			</Wrapper>
 		</>
