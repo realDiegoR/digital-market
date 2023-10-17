@@ -19,11 +19,14 @@ export const EditClient = () => {
 
 	const handleSubmit = async (profileData) => {
 		const upClient = data.find((profile) => profile.email === profileData.email);
+		if (Object.keys(profileData).length === 0) {
+			return;
+		}
 		const updateProfileData = {
-			nombre: profileData.nombre,
-			apellido: profileData.apellido,
-			celular: profileData.celular,
-			direccion: profileData.direccion,
+			nombre: profileData.nombre || upClient.nombre,
+			apellido: profileData.apellido || upClient.apellido,
+			celular: profileData.celular || upClient.celular,
+			direccion: profileData.direccion || upClient.direccion,
 		};
 		await updateProfile(upClient.id, updateProfileData);
 	};

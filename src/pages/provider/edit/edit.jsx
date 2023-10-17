@@ -19,11 +19,15 @@ export const EditProvider = () => {
 
 	const handleSubmit = async (profileData) => {
 		const upClient = data.find((profile) => profile.email === profileData.email);
+
+		if (Object.keys(profileData).length === 0) {
+			return;
+		}
 		const updateProfileData = {
-			nombre: profileData.nombre,
-			apellido: profileData.apellido,
-			celular: profileData.celular,
-			direccion: profileData.direccion,
+			nombre: profileData.nombre || upClient.nombre,
+			apellido: profileData.apellido || upClient.apellido,
+			celular: profileData.celular || upClient.celular,
+			direccion: profileData.direccion || upClient.direccion,
 		};
 		await updateProfile(upClient.id, updateProfileData);
 	};
@@ -35,11 +39,11 @@ export const EditProvider = () => {
 			<PageTitle>Modificar proveedor</PageTitle>
 			<Wrapper>
 				<Form onSubmit={handleSubmit}>
+					<FormInput label="Email" name="email" />
 					<FormInput label="Nombre" name="nombre" required={false} />
 					<FormInput label="Apellido" name="apellido" required={false} />
 					<FormInput label="Celular" name="celular" required={false} />
 					<FormInput label="Direccion" name="direccion" required={false} />
-					<FormInput label="Email" name="email" required={false} />
 					<div className="flex justify-around">
 						<Button variant="danger" type="submit">
 							Cancelar
