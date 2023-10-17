@@ -2,45 +2,45 @@ import { Helmet } from 'react-helmet';
 import { Form, FormInput } from '@/components';
 import { Button, PageTitle, Wrapper } from '@/common/';
 import { useFetch } from '@/hooks';
-import { getClients } from '@/services/clients';
 import { updateProfile } from '@/services/profiles';
+import { getProviders } from '@/services/providers';
 
-export const EditClient = () => {
-	const getBusinessClients = () => {
+export const EditProvider = () => {
+	const getBusinessProviders = () => {
 		const fakeBusinessId = 1;
-		return getClients(fakeBusinessId);
+		return getProviders(fakeBusinessId);
 	};
+
 	const { data } = useFetch({
-		cacheId: 'clientes',
-		queryFunction: getBusinessClients,
+		cacheId: 'proveedores',
+		queryFunction: getBusinessProviders,
 		select: (profiles) => profiles.map((profileItem) => profileItem.perfil),
 	});
 
 	const handleSubmit = (profileData) => {
-		const matchedClient = data.find((profile) => profile.email === profileData.email);
+		const matchedProvider = data.find((profile) => profile.email === profileData.email);
 
 		if (Object.keys(profileData).length === 0) {
 			return;
 		}
-
 		const updateProfileData = {
-			nombre: profileData.nombre || matchedClient.nombre,
-			apellido: profileData.apellido || matchedClient.apellido,
-			celular: profileData.celular || matchedClient.celular,
-			direccion: profileData.direccion || matchedClient.direccion,
+			nombre: profileData.nombre || matchedProvider.nombre,
+			apellido: profileData.apellido || matchedProvider.apellido,
+			celular: profileData.celular || matchedProvider.celular,
+			direccion: profileData.direccion || matchedProvider.direccion,
 		};
-		updateProfile(matchedClient.id, updateProfileData);
+		updateProfile(matchedProvider.id, updateProfileData);
 	};
 
 	return (
 		<>
 			<Helmet>
-				<title>Modificar cliente</title>
+				<title>Modificar proveedor</title>
 			</Helmet>
-			<PageTitle>Modificar cliente</PageTitle>
+			<PageTitle>Modificar proveedor</PageTitle>
 			<Wrapper>
 				<Form onSubmit={handleSubmit}>
-					<FormInput label="Correo" name="email" />
+					<FormInput label="Email" name="email" />
 					<FormInput label="Nombre" name="nombre" required={false} />
 					<FormInput label="Apellido" name="apellido" required={false} />
 					<FormInput label="Celular" name="celular" required={false} />

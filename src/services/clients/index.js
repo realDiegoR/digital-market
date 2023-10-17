@@ -8,12 +8,8 @@ const endpoint = '/clientes';
  * @returns {Promise<Array<Object>>} Array of client objects.
  */
 export const getClients = async (negocioId) => {
-	try {
-		const response = await api.get(`${endpoint}/${negocioId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${negocioId}`);
+	return response.data;
 };
 
 /**
@@ -23,12 +19,8 @@ export const getClients = async (negocioId) => {
  * @returns {Promise<Object>} The client object.
  */
 export const getClient = async (negocioId, clienteId) => {
-	try {
-		const response = await api.get(`${endpoint}/${negocioId}/${clienteId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${negocioId}/${clienteId}`);
+	return response.data;
 };
 
 /**
@@ -37,12 +29,8 @@ export const getClient = async (negocioId, clienteId) => {
  * @returns {Promise<Object>} The created client object.
  */
 export const createClient = async (body) => {
-	try {
-		const response = await api.post(endpoint, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(endpoint, body);
+	return response.data;
 };
 
 /**
@@ -52,10 +40,6 @@ export const createClient = async (body) => {
  * @returns {Promise<Object>} The deleted client object.
  */
 export const deleteClient = async (negocioId, clienteId) => {
-	try {
-		const response = await api.delete(`${endpoint}/${negocioId}/${clienteId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(`${endpoint}/${negocioId}/${clienteId}`);
+	return response.data;
 };

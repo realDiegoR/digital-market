@@ -7,10 +7,6 @@ const endpoint = '/usuarios';
  */
 
 export const loginUser = async (body) => {
-	try {
-		const response = await api.post(`${endpoint}/login`, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(`${endpoint}/login`, body);
+	return response.data;
 };

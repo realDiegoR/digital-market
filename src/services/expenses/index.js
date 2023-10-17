@@ -10,12 +10,8 @@ const endpoint = '/expenses'; // Define the endpoint for Expenses.
  * @returns {Promise<Array<Object>>} Array of expense objects.
  */
 export const getExpenses = async (negocioId) => {
-	try {
-		const response = await api.get(`${endpoint}/${negocioId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${negocioId}`);
+	return response.data;
 };
 
 /**
@@ -25,12 +21,8 @@ export const getExpenses = async (negocioId) => {
  * @returns {Promise<Object>} The expense object.
  */
 export const getExpense = async (negocioId, expenseId) => {
-	try {
-		const response = await api.get(`${endpoint}/${negocioId}/${expenseId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${negocioId}/${expenseId}`);
+	return response.data;
 };
 
 /**
@@ -45,12 +37,8 @@ export const getExpense = async (negocioId, expenseId) => {
  * @returns {Promise<Object>} The created expense object.
  */
 export const createExpense = async (body) => {
-	try {
-		const response = await api.post(endpoint, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(endpoint, body);
+	return response.data;
 };
 
 /**
@@ -60,10 +48,6 @@ export const createExpense = async (body) => {
  * @returns {Promise<Object>} The deleted expense object.
  */
 export const deleteExpense = async (negocioId, expenseId) => {
-	try {
-		const response = await api.delete(`${endpoint}/${negocioId}/${expenseId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(`${endpoint}/${negocioId}/${expenseId}`);
+	return response.data;
 };

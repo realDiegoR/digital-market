@@ -8,12 +8,8 @@ const endpoint = '/proveedores';
  * @returns {Promise<Array<Object>>} Array of provider objects.
  */
 export const getProviders = async (negocioId) => {
-	try {
-		const response = await api.get(`${endpoint}/${negocioId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${negocioId}`);
+	return response.data;
 };
 
 /**
@@ -23,12 +19,8 @@ export const getProviders = async (negocioId) => {
  * @returns {Promise<Object>} The provider object.
  */
 export const getProvider = async (negocioId, proveedorId) => {
-	try {
-		const response = await api.get(`${endpoint}/${negocioId}/${proveedorId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${negocioId}/${proveedorId}`);
+	return response.data;
 };
 
 /**
@@ -37,12 +29,8 @@ export const getProvider = async (negocioId, proveedorId) => {
  * @returns {Promise<Object>} The created provider object.
  */
 export const createProvider = async (body) => {
-	try {
-		const response = await api.post(endpoint, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(endpoint, body);
+	return response.data;
 };
 
 /**
@@ -52,10 +40,6 @@ export const createProvider = async (body) => {
  * @returns {Promise<Object>} The deleted provider object.
  */
 export const deleteProvider = async (negocioId, proveedorId) => {
-	try {
-		const response = await api.delete(`${endpoint}/${negocioId}/${proveedorId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(`${endpoint}/${negocioId}/${proveedorId}`);
+	return response.data;
 };

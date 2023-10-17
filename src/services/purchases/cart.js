@@ -14,12 +14,8 @@ const endpoint = '/compras';
  * @returns {Promise<Object>} The purchase object with the added item.
  */
 export const addItemToPurchase = async (body) => {
-	try {
-		const response = await api.post(`${endpoint}/add-item`, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(`${endpoint}/add-item`, body);
+	return response.data;
 };
 
 /**
@@ -30,14 +26,10 @@ export const addItemToPurchase = async (body) => {
  * @returns {Promise<Object>} The purchase object with the removed item.
  */
 export const removeItemFromPurchase = async (negocioId, compraId, productoId) => {
-	try {
-		const response = await api.delete(
-			`${endpoint}/sub-item/${negocioId}/${compraId}/${productoId}`
-		);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(
+		`${endpoint}/sub-item/${negocioId}/${compraId}/${productoId}`
+	);
+	return response.data;
 };
 
 /**
@@ -47,10 +39,6 @@ export const removeItemFromPurchase = async (negocioId, compraId, productoId) =>
  * @returns {Promise<Object>} The finalized purchase object.
  */
 export const finalizePurchase = async (negocioId, compraId) => {
-	try {
-		const response = await api.post(`${endpoint}/${negocioId}/${compraId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(`${endpoint}/${negocioId}/${compraId}`);
+	return response.data;
 };

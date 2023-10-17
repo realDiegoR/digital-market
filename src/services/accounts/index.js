@@ -10,12 +10,8 @@ const endpoint = '/accounts'; // Define the endpoint for Accounts.
  * @returns {Promise<Array<Object>>} Array of account objects.
  */
 export const getAccounts = async (negocioId) => {
-	try {
-		const response = await api.get(`${endpoint}/${negocioId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${negocioId}`);
+	return response.data;
 };
 
 /**
@@ -25,12 +21,8 @@ export const getAccounts = async (negocioId) => {
  * @returns {Promise<Object>} The account object.
  */
 export const getAccount = async (negocioId, accountId) => {
-	try {
-		const response = await api.get(`${endpoint}/${negocioId}/${accountId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${negocioId}/${accountId}`);
+	return response.data;
 };
 
 /**
@@ -43,12 +35,8 @@ export const getAccount = async (negocioId, accountId) => {
  * @returns {Promise<Object>} The created account object.
  */
 export const createAccount = async (body) => {
-	try {
-		const response = await api.post(endpoint, body);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(endpoint, body);
+	return response.data;
 };
 
 /**
@@ -59,12 +47,8 @@ export const createAccount = async (body) => {
  * @returns {Promise<Object>} The updated account object.
  */
 export const updateAccount = async (negocioId, accountId, accountData) => {
-	try {
-		const response = await api.patch(`${endpoint}/${negocioId}/${accountId}`, accountData);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.patch(`${endpoint}/${negocioId}/${accountId}`, accountData);
+	return response.data;
 };
 
 /**
@@ -74,10 +58,6 @@ export const updateAccount = async (negocioId, accountId, accountData) => {
  * @returns {Promise<Object>} The deleted account object.
  */
 export const deleteAccount = async (negocioId, accountId) => {
-	try {
-		const response = await api.delete(`${endpoint}/${negocioId}/${accountId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(`${endpoint}/${negocioId}/${accountId}`);
+	return response.data;
 };

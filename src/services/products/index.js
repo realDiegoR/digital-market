@@ -7,12 +7,8 @@ const endpoint = '/productos';
  */
 
 export const getAllProducts = async (businessId) => {
-	try {
-		const response = await api.get(`${endpoint}/${businessId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${businessId}`);
+	return response.data;
 };
 
 /**
@@ -21,12 +17,8 @@ export const getAllProducts = async (businessId) => {
  */
 
 export const getProduct = async (businessId, productId) => {
-	try {
-		const response = await api.get(`${endpoint}/${businessId}/${productId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.get(`${endpoint}/${businessId}/${productId}`);
+	return response.data;
 };
 
 /**
@@ -34,12 +26,8 @@ export const getProduct = async (businessId, productId) => {
  */
 
 export const createProduct = async (product) => {
-	try {
-		const response = await api.post(endpoint, product);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.post(endpoint, product);
+	return response.data;
 };
 
 /**
@@ -49,12 +37,8 @@ export const createProduct = async (product) => {
  */
 
 export const updateProduct = async (businessId, productId, product) => {
-	try {
-		const response = await api.patch(`${endpoint}/${businessId}/${productId}`, product);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.patch(`${endpoint}/${businessId}/${productId}`, product);
+	return response.data;
 };
 
 /**
@@ -63,10 +47,6 @@ export const updateProduct = async (businessId, productId, product) => {
  */
 
 export const deleteProduct = async (businessId, productId) => {
-	try {
-		const response = await api.delete(`${endpoint}/${businessId}/${productId}`);
-		return response.data;
-	} catch (err) {
-		return err.response.data;
-	}
+	const response = await api.delete(`${endpoint}/${businessId}/${productId}`);
+	return response.data;
 };

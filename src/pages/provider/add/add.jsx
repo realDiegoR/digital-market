@@ -1,22 +1,23 @@
 import { Helmet } from 'react-helmet';
 import { Form, FormInput } from '@/components';
-import { Button, PageTitle, Wrapper } from '@/common';
-import { createClient } from '@/services/clients';
+import { Button, PageTitle, Wrapper } from '@/common/';
 import { postProfile } from '@/services/profiles';
+import { createProvider } from '@/services/providers';
 
-export const AddClient = () => {
+export const AddNewProvider = () => {
 	const fakeBusinessId = 1;
 
 	const handleSubmit = async (data) => {
 		const response = await postProfile(data);
-		createClient({ negocioId: fakeBusinessId, perfilId: response.data.id });
+		createProvider({ negocioId: fakeBusinessId, perfilId: response.data.id });
 	};
+
 	return (
 		<>
 			<Helmet>
-				<title>Agregar nuevo cliente</title>
+				<title>Agregar nuevo proveedor</title>
 			</Helmet>
-			<PageTitle>Agregar nuevo cliente</PageTitle>
+			<PageTitle>Agregar nuevo proveedor</PageTitle>
 			<Wrapper>
 				<Form
 					onSubmit={handleSubmit}
@@ -28,7 +29,7 @@ export const AddClient = () => {
 					<FormInput label="Email" name="email" />
 					<FormInput label="Dirección" name="direccion" />
 					<div className="mt-6 flex justify-end ">
-						<Button type="submit">Agregar cliente</Button>
+						<Button type="submit">Agregar proveedor</Button>
 					</div>
 				</Form>
 			</Wrapper>

@@ -10,14 +10,12 @@ import {
 import { MainLayout, ReturnableMainLayout } from '@/layouts/';
 import { Account, AddAccount, EditAccount, SearchAccount } from './accounts';
 import { ChargePurchasePage, ChargeSalePage } from './charge';
-import { EditClient } from './clients';
-import { AddClient } from './clients/add';
-import { Client } from './clients/client';
-import { SearchClient } from './clients/search';
+import { AddClient, Client, EditClient, SearchClient } from './clients';
 import { Home } from './home/';
 import { Login } from './login/login';
 import { PayProviderPage } from './pay/PayProviderPage';
 import { ChargeClientPage } from './payment/ChargeClientPage';
+import { AddNewProvider, EditProvider, Provider, SearchProvider } from './provider';
 import { PurchasesPage } from './purchases/';
 import { RootPage } from './root/';
 import { SalesPage } from './sales/';
@@ -50,6 +48,10 @@ const router = createBrowserRouter(
 				<Route path="/cuentas/agregar" element={<AddAccount />} />
 				<Route path="/cuentas/buscar" element={<SearchAccount />} />
 				<Route path="/cuentas/editar" element={<EditAccount />} />
+				<Route path="/proveedores" element={<Provider />} />
+				<Route path="/proveedores/agregar" element={<AddNewProvider />} />
+				<Route path="/proveedores/buscar" element={<SearchProvider />} />
+				<Route path="/proveedores/editar" element={<EditProvider />} />
 			</Route>
 		</Route>
 	)
